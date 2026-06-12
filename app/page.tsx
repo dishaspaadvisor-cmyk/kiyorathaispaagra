@@ -1,65 +1,231 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
+import ServiceCard from "@/components/servicecard";
+import BlogCard from "@/components/BlogCard";
+import { services } from "@/data/service";
+import { blogs } from "@/data/blog";
+import { siteData } from "@/data/site";
+import Link from "next/link";
+import { Sparkles, ShieldCheck, Heart, Star, Quote } from "lucide-react";
 
-export default function Home() {
+
+export const metadata = {
+  title: siteData.seo.title,
+  description: siteData.seo.description,
+  keywords: siteData.seo.keywords,
+  alternates: {
+    canonical: siteData.url,
+  },
+  openGraph: {
+    title: siteData.seo.title,
+    description: siteData.seo.description,
+    url: siteData.url,
+    siteName: siteData.name,
+    type: "website",
+    images: [
+      {
+        url: `${siteData.url}/images/kiyorathaispa.png`,
+        alt: siteData.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteData.seo.title,
+    description: siteData.seo.description,
+    images: [`${siteData.url}/images/kiyorathaispa.png`],
+  },
+};
+
+
+const reviews = [
+  {
+    id: 1,
+    name: "Amit Sharma",
+    rating: 5,
+    review:
+      "Very clean and peaceful spa. The ambience is premium and the massage service was relaxing. Great place in Agra for wellness.",
+  },
+  {
+    id: 2,
+    name: "Rahul Verma",
+    rating: 5,
+    review:
+      "Excellent Thai massage experience. Rooms are hygienic, staff is professional, and the environment feels luxurious.",
+  },
+  {
+    id: 3,
+    name: "Priya Singh",
+    rating: 5,
+    review:
+      "Beautiful spa room, calm music, and very comfortable experience. Perfect place to relax after a busy day.",
+  },
+  {
+    id: 4,
+    name: "Sandeep Gupta",
+    rating: 4,
+    review:
+      "Good service and nice ambience. The location near Fatehabad Road is also convenient.",
+  },
+  {
+    id: 5,
+    name: "Neha Agarwal",
+    rating: 5,
+    review:
+      "One of the best spa experiences in Agra. Clean rooms, soft lighting, and relaxing massage therapy.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main>
+      <Hero />
+
+      {/* Services */}
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <span className="font-semibold uppercase tracking-widest text-yellow-600">
+              Premium Services
+            </span>
+
+            <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
+              Luxury Spa Services
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl text-gray-600">
+              Experience relaxing massage therapies and wellness treatments at{" "}
+              {siteData.name} in {siteData.city}.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 6).map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/services"
+              className="rounded-full bg-black px-8 py-4 font-semibold text-white hover:bg-yellow-500 hover:text-black"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+       {/* Reviews */}
+      <section className="bg-white py-20">
+       <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((item) => (
+              <article
+                key={item.id}
+                className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <Quote className="text-yellow-500" size={42} />
+
+                <div className="mt-5 flex gap-1 text-yellow-500">
+                  {Array.from({ length: item.rating }).map((_, index) => (
+                    <Star key={index} size={18} fill="currentColor" />
+                  ))}
+                </div>
+
+                <p className="mt-5 leading-8 text-gray-600">
+                  “{item.review}”
+                </p>
+
+                <h3 className="mt-6 text-lg font-bold text-gray-900">
+                  {item.name}
+                </h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose */}
+      <section className="bg-black py-20 text-white">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <span className="font-semibold uppercase tracking-widest text-yellow-500">
+              Why Choose Us
+            </span>
+
+            <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+              Premium Wellness Experience
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Sparkles,
+                title: "Luxury Ambience",
+                text: "Peaceful interiors for a relaxing spa experience.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Hygienic Rooms",
+                text: "Clean, private, and comfortable treatment rooms.",
+              },
+              {
+                icon: Heart,
+                title: "Expert Therapists",
+                text: "Professional wellness care with trained therapists.",
+              },
+              {
+                icon: Star,
+                title: "Premium Service",
+                text: "A luxury spa experience designed for relaxation.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-yellow-500/20 bg-white/5 p-8 text-center"
+              >
+                <item.icon className="mx-auto text-yellow-500" size={42} />
+                <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
+                <p className="mt-3 text-gray-400">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blogs */}
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <span className="font-semibold uppercase tracking-widest text-yellow-600">
+              Wellness Blog
+            </span>
+
+            <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
+              Latest Spa Articles
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {blogs.slice(0, 3).map((blog) => (
+              <BlogCard key={blog.id} blog={blog} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/blog"
+              className="rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black hover:bg-yellow-400"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Read More Blogs
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+     
+
+    </main>
   );
 }

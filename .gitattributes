@@ -1,0 +1,15 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Declare binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg binary
+
+# Do not normalize files that should remain exact
+*.lock binary
+package-lock.json text eol=lf
