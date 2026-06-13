@@ -2,7 +2,15 @@ import Image from "next/image";
 import { siteData } from "@/data/site";
 import Link from "next/link";
 
-export default function ServiceCard({ service }: { service: any }) {
+type Service = {
+    id: number;
+    title: string;
+    slug: string;
+    image: string;
+    description: string;
+};
+
+export default function ServiceCard({ service }: { service: Service }) {
     return (
         <div className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
 

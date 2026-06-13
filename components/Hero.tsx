@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Phone, MessageCircle, MapPin, Star } from "lucide-react";
 import { siteData } from "@/data/site";
 
@@ -24,18 +23,20 @@ export default function Hero() {
                     {/* Rating */}
                     <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-black/50 px-4 py-2 text-sm text-yellow-400">
                         <Star size={16} fill="currentColor" />
-                        5-Star Luxury Thai Spa Experience
+                        Luxury Spa & Massage Experience in Agra
                     </div>
 
                     <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
-                        Best Thai Spa in{" "}
+                        Spa & Massage in{" "}
                         <span className="text-yellow-500">Agra</span>
                     </h1>
 
                     <p className="mb-6 max-w-2xl text-base leading-8 text-gray-200 md:text-xl">
                         Relax, refresh, and rejuvenate at Kiyora Thai Spa. Experience
-                        premium massage therapies, peaceful ambience, hygienic rooms, and
-                        professional wellness care in Siddharth Nagar, Agra.
+                        full body massage, Thai massage, Swedish massage, deep tissue
+                        therapy, hot oil massage, Jacuzzi massage, foot reflexology,
+                        peaceful ambience, hygienic rooms, and professional wellness care
+                        in Siddharth Nagar, Agra.
                     </p>
 
                     {/* Location */}

@@ -4,37 +4,21 @@ import BlogCard from "@/components/BlogCard";
 import { services } from "@/data/service";
 import { blogs } from "@/data/blog";
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 import Link from "next/link";
 import { Sparkles, ShieldCheck, Heart, Star, Quote } from "lucide-react";
 
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: siteData.seo.title,
   description: siteData.seo.description,
-  keywords: siteData.seo.keywords,
-  alternates: {
-    canonical: siteData.url,
-  },
-  openGraph: {
-    title: siteData.seo.title,
-    description: siteData.seo.description,
-    url: siteData.url,
-    siteName: siteData.name,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/kiyorathaispa.png`,
-        alt: siteData.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteData.seo.title,
-    description: siteData.seo.description,
-    images: [`${siteData.url}/images/kiyorathaispa.png`],
-  },
-};
+  imageAlt: `${siteData.name} spa and massage center in Agra`,
+  extraKeywords: [
+    "spa near Taj Mahal Agra",
+    "spa near me Agra",
+    "massage near me Agra",
+  ],
+});
 
 
 const reviews = [
@@ -89,12 +73,14 @@ export default function HomePage() {
             </span>
 
             <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
-              Luxury Spa Services
+              Spa & Massage Services in Agra
             </h2>
 
             <p className="mx-auto mt-5 max-w-3xl text-gray-600">
-              Experience relaxing massage therapies and wellness treatments at{" "}
-              {siteData.name} in {siteData.city}.
+              Experience full body massage, Thai massage, Swedish massage, deep
+              tissue massage, hot oil massage, Jacuzzi massage, foot reflexology,
+              and aromatherapy at {siteData.name} in {siteData.area},{" "}
+              {siteData.city}.
             </p>
           </div>
 
@@ -133,7 +119,7 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-5 leading-8 text-gray-600">
-                  “{item.review}”
+                  &quot;{item.review}&quot;
                 </p>
 
                 <h3 className="mt-6 text-lg font-bold text-gray-900">

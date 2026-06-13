@@ -1,26 +1,16 @@
 import Image from "next/image";
 import { galleryImages } from "@/data/gallery";
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 
-export const metadata = {
-  title: `Gallery | ${siteData.name} ${siteData.city}`,
-  description: `View luxury spa rooms, massage therapy setup, relaxing ambience, and wellness gallery of ${siteData.name} in ${siteData.city}.`,
-  alternates: {
-    canonical: `${siteData.url}/gallery`,
-  },
-  openGraph: {
-    title: `Gallery | ${siteData.name} ${siteData.city}`,
-    description: `View luxury spa rooms, massage therapy setup, relaxing ambience, and wellness gallery of ${siteData.name} in ${siteData.city}.`,
-    url: `${siteData.url}/gallery`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: `Gallery | ${siteData.name}`,
-      },
-    ],
-  },
-};
+export const metadata = pageMetadata({
+  title: `Spa Gallery in ${siteData.city} | ${siteData.name}`,
+  description: `View spa rooms, massage therapy setup, Jacuzzi ambience, hot oil massage space, aromatherapy setup and wellness gallery of ${siteData.name} in ${siteData.city}.`,
+  path: "/gallery",
+  image: "/images/smallhero.png",
+  imageAlt: `${siteData.name} spa gallery in Agra`,
+  extraKeywords: ["spa gallery Agra", "massage room Agra", "spa photos Agra"],
+});
 
 export default function GalleryPage() {
   return (
@@ -35,7 +25,9 @@ export default function GalleryPage() {
             Our Gallery
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
-            Discover the luxurious spa rooms, tranquil ambiance, and rejuvenating wellness experiences at {siteData.name}.
+            Discover luxury spa rooms, tranquil ambience, massage therapy
+            spaces, and rejuvenating wellness experiences at {siteData.name} in
+            {siteData.city}.
           </p>
         </div>
       </section>

@@ -1,25 +1,19 @@
 import { Star, Quote } from "lucide-react";
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 
-export const metadata = {
-  title: `Customer Reviews | ${siteData.name} ${siteData.city}`,
-  description: `Read customer reviews and guest experiences for ${siteData.name}, a premium spa in ${siteData.city}.`,
-  alternates: {
-    canonical: `${siteData.url}/reviews`,
-  },
-  openGraph: {
-    title: `Customer Reviews | ${siteData.name} ${siteData.city}`,
-    description: `Read customer reviews and guest experiences for ${siteData.name}, a premium spa in ${siteData.city}.`,
-    url: `${siteData.url}/reviews`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: `Customer Reviews | ${siteData.name}`,
-      },
-    ],
-  },
-};
+export const metadata = pageMetadata({
+  title: `Spa Reviews in ${siteData.city} | ${siteData.name}`,
+  description: `Read guest reviews for ${siteData.name}, a spa and massage center in ${siteData.city} offering Thai massage, full body massage, deep tissue massage, hot oil massage and wellness therapies.`,
+  path: "/reviews",
+  image: "/images/smallhero.png",
+  imageAlt: `${siteData.name} customer reviews in Agra`,
+  extraKeywords: [
+    "spa reviews Agra",
+    "massage reviews Agra",
+    "Kiyora Thai Spa reviews",
+  ],
+});
 
 const reviews = [
   {
@@ -105,7 +99,7 @@ export default function ReviewsPage() {
                 </div>
 
                 <p className="mt-5 leading-8 text-gray-600">
-                  “{item.review}”
+                  &quot;{item.review}&quot;
                 </p>
 
                 <h3 className="mt-6 text-lg font-bold text-gray-900">

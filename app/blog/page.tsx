@@ -1,28 +1,17 @@
 import { blogs } from "@/data/blog";
 import BlogCard from "@/components/BlogCard";
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 
-export const metadata = {
-  title: "Spa Blog | Kiyora Thai Spa Agra",
+export const metadata = pageMetadata({
+  title: `Spa & Massage Blog in ${siteData.city} | ${siteData.name}`,
   description:
-    "Read wellness articles, Thai massage guides, spa treatments, relaxation tips, and health benefits from Kiyora Thai Spa Agra.",
-  alternates: {
-    canonical: `${siteData.url}/blog`,
-  },
-  openGraph: {
-    title: "Spa Blog | Kiyora Thai Spa Agra",
-    description:
-      "Read wellness articles, Thai massage guides, spa treatments, relaxation tips, and health benefits from Kiyora Thai Spa Agra.",
-    url: `${siteData.url}/blog`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: "Spa Blog - Kiyora Thai Spa",
-      },
-    ],
-  },
-};
+    "Read wellness articles, massage guides, Thai massage tips, full body massage benefits, deep tissue massage advice, spa treatments and relaxation tips from Kiyora Thai Spa Agra.",
+  path: "/blog",
+  image: "/images/smallhero.png",
+  imageAlt: "Spa and massage blog by Kiyora Thai Spa Agra",
+  extraKeywords: ["spa blog Agra", "massage guide Agra", "wellness tips Agra"],
+});
 
 export default function BlogPage() {
   return (
@@ -38,7 +27,9 @@ export default function BlogPage() {
 
           <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
             Discover massage benefits, wellness tips, relaxation techniques,
-            and luxury spa experiences in Agra.
+            and luxury spa experiences in Agra across full body massage, Thai
+            massage, Swedish massage, deep tissue massage, hot oil massage,
+            Jacuzzi massage, and foot reflexology.
           </p>
         </div>
       </section>

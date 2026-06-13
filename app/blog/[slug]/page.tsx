@@ -4,6 +4,7 @@ import { siteData } from "@/data/site";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { absoluteUrl, jsonLd, keywords } from "@/data/seo";
 
 interface Params {
   params: {
@@ -34,7 +35,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: blog.title,
     description: blog.excerpt,
-    keywords: `${blog.title}, Spa Blog Agra, Thai Massage Blog, Wellness Blog`,
+    keywords: keywords([
+      blog.title,
+      "Spa Blog Agra",
+      "Massage Blog Agra",
+      "Wellness Blog Agra",
+    ]),
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
@@ -42,10 +48,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       type: "article",
       images: [
         {
-          url: `${siteData.url}${blog.image}`,
-          alt: blog.title,
+          url: absoluteUrl(blog.image),
+          alt: `${blog.title} by ${siteData.name}`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.excerpt,
+      images: [absoluteUrl(blog.image)],
     },
     alternates: {
       canonical: `${siteData.url}/blog/${blog.slug}`,
@@ -65,8 +77,36 @@ export default async function BlogDetailsPage({ params }: Params) {
     .filter((item) => item.id !== blog.id)
     .slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: blog.title,
+    description: blog.excerpt,
+    image: absoluteUrl(blog.image),
+    datePublished: blog.date,
+    dateModified: blog.date,
+    author: {
+      "@type": "Organization",
+      name: blog.author || siteData.name,
+      url: siteData.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteData.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/favicon.png"),
+      },
+    },
+    mainEntityOfPage: absoluteUrl(`/blog/${blog.slug}`),
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }}
+      />
       {/* Hero Image */}
       <section className="relative h-125 overflow-hidden">
         <Image

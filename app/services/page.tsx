@@ -1,30 +1,21 @@
 import ServiceCard from "@/components/servicecard";
 import { services } from "@/data/service";
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 
-export const metadata = {
-  title: "Spa Services in Agra | Kiyora Thai Spa",
+export const metadata = pageMetadata({
+  title: `Spa Services in ${siteData.city} - Massage & Wellness Therapies`,
   description:
-    "Explore premium spa treatments including Thai Massage, Deep Tissue Massage, Swedish Massage, Jacuzzi Massage, Foot Reflexology and Full Body Massage in Agra.",
-  keywords:
-    "Spa Services Agra, Thai Massage Agra, Body Massage Agra, Spa Near Me Agra, Luxury Spa Agra",
-  alternates: {
-    canonical: `${siteData.url}/services`,
-  },
-  openGraph: {
-    title: "Spa Services in Agra | Kiyora Thai Spa",
-    description:
-      "Explore premium spa treatments including Thai Massage, Deep Tissue Massage, Swedish Massage, Jacuzzi Massage, Foot Reflexology and Full Body Massage in Agra.",
-    url: `${siteData.url}/services`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: "Spa Services in Agra",
-      },
-    ],
-  },
-};
+    "Explore full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, Jacuzzi massage, foot reflexology, four hand massage and aromatherapy at Kiyora Thai Spa in Agra.",
+  path: "/services",
+  image: "/images/smallhero.png",
+  imageAlt: "Spa services and massage therapies at Kiyora Thai Spa Agra",
+  extraKeywords: [
+    "spa services Agra",
+    "massage services Agra",
+    "spa menu Agra",
+  ],
+});
 
 export default function ServicesPage() {
   return (
@@ -41,9 +32,10 @@ export default function ServicesPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
-            Discover luxury massage therapies and wellness treatments
-            designed to relax your body, refresh your mind, and
-            rejuvenate your spirit.
+            Discover luxury massage therapies and wellness treatments in
+            Siddharth Nagar, Agra. Our spa menu covers body massage, Thai
+            massage, deep tissue therapy, Swedish massage, hot oil massage,
+            Jacuzzi sessions, foot reflexology, and aromatherapy.
           </p>
         </div>
       </section>

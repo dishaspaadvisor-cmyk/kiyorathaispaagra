@@ -1,26 +1,16 @@
 import Image from "next/image";
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 import { Award, Heart, ShieldCheck, Sparkles } from "lucide-react";
 
-export const metadata = {
-  title: `About Us | ${siteData.name} Agra`,
-  description: `${siteData.name} is a premium Thai spa in ${siteData.area}, ${siteData.city}, offering luxury massage therapies, peaceful ambience, hygienic rooms, and professional wellness care.`,
-  alternates: {
-    canonical: `${siteData.url}/about`,
-  },
-  openGraph: {
-    title: `About Us | ${siteData.name}`,
-    description: `${siteData.name} is a premium Thai spa in ${siteData.area}, ${siteData.city}, offering luxury massage therapies, peaceful ambience, hygienic rooms, and professional wellness care.`,
-    url: `${siteData.url}/about`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: `About ${siteData.name}`,
-      },
-    ],
-  },
-};
+export const metadata = pageMetadata({
+  title: `About ${siteData.name} - Spa & Wellness Center in ${siteData.city}`,
+  description: `${siteData.name} is a premium spa and wellness center in ${siteData.area}, ${siteData.city}, offering full body massage, Thai massage, deep tissue massage, Swedish massage, hot oil massage, Jacuzzi massage and foot reflexology.`,
+  path: "/about",
+  image: "/images/smallhero.png",
+  imageAlt: `About ${siteData.name} spa in Agra`,
+  extraKeywords: ["about Kiyora Thai Spa", "premium spa Agra"],
+});
 
 export default function AboutPage() {
   return (
@@ -35,8 +25,9 @@ export default function AboutPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
-            A luxury Thai spa experience in {siteData.area}, {siteData.city},
-            created for complete relaxation, wellness, comfort, and peace.
+            A luxury spa and massage experience in {siteData.area},{" "}
+            {siteData.city}, created for complete relaxation, wellness,
+            comfort, and peace.
           </p>
         </div>
       </section>
@@ -63,8 +54,9 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 leading-8 text-gray-600">
-              {siteData.name} offers professional spa therapies designed to
-              relax the body, refresh the mind, and improve overall wellness.
+              {siteData.name} offers professional spa and massage therapies
+              designed to relax the body, refresh the mind, and improve overall
+              wellness.
               Our peaceful ambience, hygienic rooms, and trained therapists make
               every visit comfortable and rejuvenating.
             </p>

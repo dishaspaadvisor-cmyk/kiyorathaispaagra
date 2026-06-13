@@ -1,7 +1,7 @@
 export const siteData = {
   name: "Kiyora Thai Spa",
   url: "https://kiyorathaispaagra.in",
-  tagline: "Luxury Thai Spa & Wellness Experience",
+  tagline: "Luxury Spa, Massage & Wellness Experience",
   phone: "+919152655313",
   whatsapp: "919152855145",
   online_booking: "https://spaadvisor.in/spa",
@@ -21,12 +21,11 @@ export const siteData = {
     "Shop No. 201, 2nd Floor, Ramesh Plaza, 30/6/20J, Opposite Punjab & Sindh Bank, Fatehabad Road, Siddharth Nagar, Agra, Uttar Pradesh 282001",
 
   seo: {
-    title: "Kiyora Thai Spa | Best Thai Spa in Agra",
+    title: "Kiyora Thai Spa - Spa & Massage in Agra | Siddharth Nagar Wellness Center",
     description:
-      "Kiyora Thai Spa in Siddharth Nagar, Agra offers luxury Thai massage, body spa, aromatherapy, deep tissue massage, and premium wellness services.",
+      "Kiyora Thai Spa in Siddharth Nagar, Agra offers full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, Jacuzzi massage, foot reflexology, aromatherapy and premium spa wellness services near Fatehabad Road.",
     keywords:
-      "Thai spa in Agra, best spa in Agra, Kiyora Thai Spa, spa in Siddharth Nagar, massage in Agra",
-  },
+      "spa in Agra, massage in Agra, spa in Siddharth Nagar, spa near Fatehabad Road Agra, Kiyora Thai Spa, wellness center in Agra, body massage in Agra, full body massage in Agra, Thai massage in Agra, Swedish massage in Agra, deep tissue massage in Agra, hot oil massage in Agra, Jacuzzi massage in Agra, foot reflexology in Agra, aromatherapy massage in Agra, four hand massage in Agra, female to male massage in Agra, luxury spa in Agra, best spa in Agra, spa booking in Agra"},
 
   socials: {
     facebook: "#",

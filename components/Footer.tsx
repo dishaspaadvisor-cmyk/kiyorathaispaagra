@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, Globe, Image, Play } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Globe, ImageIcon, Play } from "lucide-react";
 import { siteData } from "@/data/site";
 import { services } from "@/data/service";
 
@@ -55,7 +55,7 @@ export default function Footer() {
                 <Globe size={18} />
               </a>
               <a href={siteData.socials.instagram} className="rounded-full bg-white/10 p-3 hover:bg-yellow-500 hover:text-black" aria-label="Instagram">
-                <Image size={18} />
+                <ImageIcon size={18} />
               </a>
               <a href={siteData.socials.youtube} className="rounded-full bg-white/10 p-3 hover:bg-yellow-500 hover:text-black" aria-label="YouTube">
                 <Play size={18} />
@@ -75,7 +75,7 @@ export default function Footer() {
                 ["About Us", "/about"],
                 ["Services", "/services"],
                 ["Gallery", "/gallery"],
-                ["Testimonials", "/testimonials"],
+                ["Reviews", "/reviews"],
                 ["Blog", "/blog"],
                 ["Contact", "/contact"],
               ].map(([name, href]) => (
@@ -147,7 +147,7 @@ export default function Footer() {
       <section className="border-t border-white/10 py-5">
         <div className="container mx-auto flex flex-col items-center justify-between gap-3 px-4 text-center text-sm text-gray-500 md:flex-row">
           <p>
-            © {new Date().getFullYear()} {siteData.name}. All Rights Reserved.
+            &copy; {new Date().getFullYear()} {siteData.name}. All Rights Reserved.
           </p>
 
           <div className="flex gap-5">

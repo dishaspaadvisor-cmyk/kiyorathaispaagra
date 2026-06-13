@@ -4,10 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import { siteData } from "@/data/site";
-
-export const metadataBase = new URL(siteData.url);
+import { absoluteUrl, coreServiceKeywords, jsonLd } from "@/data/seo";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteData.url),
   title: {
     default: siteData.seo.title,
     template: `%s | ${siteData.name}`,
@@ -32,13 +32,14 @@ export const metadata: Metadata = {
     description: siteData.seo.description,
     url: siteData.url,
     siteName: siteData.name,
+    locale: "en_IN",
     type: "website",
     images: [
       {
-        url: `${siteData.url}/images/kiyorathaispa.png`,
+        url: absoluteUrl("/images/kiyorathaispa.png"),
         width: 1200,
         height: 630,
-        alt: siteData.name,
+        alt: `${siteData.name} spa and massage center in Agra`,
       },
     ],
   },
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteData.seo.title,
     description: siteData.seo.description,
-    images: [`${siteData.url}/images/kiyorathaispa.png`],
+    images: [absoluteUrl("/images/kiyorathaispa.png")],
   },
 };
 
@@ -62,11 +63,14 @@ export default function RootLayout({
   const healthBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
+    "@id": `${siteData.url}/#business`,
     name: siteData.name,
+    alternateName: "Kiyora Spa Agra",
     description: siteData.seo.description,
     url: siteData.url,
     telephone: siteData.phone,
     email: siteData.email,
+    slogan: siteData.tagline,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteData.address,
@@ -74,6 +78,17 @@ export default function RootLayout({
       addressRegion: siteData.state,
       postalCode: siteData.pincode,
       addressCountry: "IN",
+    },
+    areaServed: [
+      siteData.city,
+      siteData.area,
+      "Fatehabad Road",
+      "Tajganj",
+      "Agra Cantonment",
+    ],
+    geo: {
+      "@type": "GeoCoordinates",
+      address: siteData.address,
     },
     openingHoursSpecification: [
       {
@@ -91,8 +106,21 @@ export default function RootLayout({
         closes: "22:00",
       },
     ],
-    image: `${siteData.url}/images/kiyorathaispa.png`,
-    priceRange: "₹₹",
+    image: absoluteUrl("/images/kiyorathaispa.png"),
+    logo: absoluteUrl("/favicon.png"),
+    priceRange: "INR 1500-5000",
+    paymentAccepted: "Cash, UPI, Card",
+    currenciesAccepted: "INR",
+    knowsAbout: coreServiceKeywords,
+    makesOffer: coreServiceKeywords.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service,
+        serviceType: service,
+        areaServed: siteData.city,
+      },
+    })),
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 
@@ -102,6 +130,7 @@ export default function RootLayout({
     name: siteData.name,
     url: siteData.url,
     description: siteData.seo.description,
+    inLanguage: "en-IN",
     publisher: {
       "@type": "Organization",
       name: siteData.name,
@@ -110,15 +139,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(healthBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(healthBusinessSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(websiteSchema) }}
         />
 
         <Header />

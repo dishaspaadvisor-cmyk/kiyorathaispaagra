@@ -1,25 +1,15 @@
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 import Link from "next/link";
 
-export const metadata = {
-  title: `Offers | ${siteData.name} ${siteData.city}`,
-  description: `Discover current spa offers, wellness packages, and special booking discounts at ${siteData.name} in ${siteData.city}.`,
-  alternates: {
-    canonical: `${siteData.url}/offers`,
-  },
-  openGraph: {
-    title: `Offers | ${siteData.name} ${siteData.city}`,
-    description: `Discover current spa offers, wellness packages, and special booking discounts at ${siteData.name} in ${siteData.city}.`,
-    url: `${siteData.url}/offers`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: `Offers | ${siteData.name}`,
-      },
-    ],
-  },
-};
+export const metadata = pageMetadata({
+  title: `Spa Offers in ${siteData.city} | ${siteData.name}`,
+  description: `Discover spa offers, massage packages, wellness deals and special booking discounts for full body massage, Thai massage, aromatherapy and relaxation therapies at ${siteData.name} in ${siteData.city}.`,
+  path: "/offers",
+  image: "/images/smallhero.png",
+  imageAlt: `Spa offers at ${siteData.name} Agra`,
+  extraKeywords: ["spa offers Agra", "massage package Agra", "spa discount Agra"],
+});
 
 export default function OffersPage() {
   return (
@@ -35,7 +25,8 @@ export default function OffersPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">
-            Explore our exclusive discounts, bundle treatments, and limited-time spa packages at {siteData.name} in {siteData.city}.
+            Explore exclusive discounts, bundle treatments, massage packages,
+            and limited-time spa offers at {siteData.name} in {siteData.city}.
           </p>
         </div>
       </section>

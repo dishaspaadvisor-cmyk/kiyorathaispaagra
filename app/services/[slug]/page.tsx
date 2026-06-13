@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/data/service";
 import { siteData } from "@/data/site";
+import { absoluteUrl, jsonLd, keywords } from "@/data/seo";
 
 interface Params {
   params: {
@@ -33,22 +34,33 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return {
     title: `${service.title} in ${siteData.city} | ${siteData.name}`,
-    description: `${service.description} Visit ${siteData.name} in ${siteData.city} for premium wellness and relaxation services.`,
-    keywords: `${service.title} in ${siteData.city}, Spa in ${siteData.city}, Massage in ${siteData.city}, ${siteData.name}`,
+    description: `${service.description} Book ${service.title.toLowerCase()} at ${siteData.name} in ${siteData.area}, near Fatehabad Road, ${siteData.city}.`,
+    keywords: keywords([
+      `${service.title} in ${siteData.city}`,
+      `${service.title} in ${siteData.area}`,
+      `${service.title} near Fatehabad Road`,
+      `book ${service.title} Agra`,
+    ]),
     alternates: {
       canonical: `${siteData.url}/services/${service.slug}`,
     },
     openGraph: {
       title: `${service.title} | ${siteData.name}`,
-      description: service.description,
+      description: `${service.description} Available at ${siteData.name} in ${siteData.city}.`,
       url: `${siteData.url}/services/${service.slug}`,
       type: "website",
       images: [
         {
-          url: `${siteData.url}${service.image}`,
-          alt: service.title,
+          url: absoluteUrl(service.image),
+          alt: `${service.title} at ${siteData.name} Agra`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} in ${siteData.city} | ${siteData.name}`,
+      description: `${service.description} Book at ${siteData.name} in ${siteData.area}, ${siteData.city}.`,
+      images: [absoluteUrl(service.image)],
     },
   };
 }
@@ -61,8 +73,38 @@ export default async function ServiceDetailsPage({ params }: Params) {
     notFound();
   }
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${service.title} in ${siteData.city}`,
+    serviceType: service.title,
+    description: service.description,
+    image: absoluteUrl(service.image),
+    provider: {
+      "@type": "HealthAndBeautyBusiness",
+      "@id": `${siteData.url}/#business`,
+      name: siteData.name,
+      url: siteData.url,
+      telephone: siteData.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteData.address,
+        addressLocality: siteData.city,
+        addressRegion: siteData.state,
+        postalCode: siteData.pincode,
+        addressCountry: "IN",
+      },
+    },
+    areaServed: [siteData.city, siteData.area, "Fatehabad Road"],
+    url: absoluteUrl(`/services/${service.slug}`),
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(serviceSchema) }}
+      />
       {/* Hero */}
       <section className="relative h-125 overflow-hidden">
         <Image
@@ -97,7 +139,9 @@ export default async function ServiceDetailsPage({ params }: Params) {
           </h2>
 
           <p className="text-lg leading-8 text-gray-700">
-            {service.description}
+            {service.description} This service is available at {siteData.name} in{" "}
+            {siteData.area}, near Fatehabad Road, {siteData.city}, along with
+            other spa and wellness therapies.
           </p>
 
           <div className="mt-10 rounded-2xl bg-gray-50 p-8">
@@ -106,11 +150,11 @@ export default async function ServiceDetailsPage({ params }: Params) {
             </h3>
 
             <ul className="space-y-3">
-              <li>✓ Professional and experienced therapists</li>
-              <li>✓ Clean and hygienic spa environment</li>
-              <li>✓ Premium wellness experience</li>
-              <li>✓ Comfortable private treatment rooms</li>
-              <li>✓ Relaxing atmosphere and ambience</li>
+              <li>Professional and experienced therapists</li>
+              <li>Clean and hygienic spa environment</li>
+              <li>Premium wellness experience in Agra</li>
+              <li>Comfortable private treatment rooms</li>
+              <li>Relaxing atmosphere and ambience</li>
             </ul>
           </div>
 

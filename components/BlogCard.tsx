@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BlogCard({ blog }: { blog: any }) {
+type Blog = {
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  excerpt: string;
+};
+
+export default function BlogCard({ blog }: { blog: Blog }) {
   return (
     <article className="group overflow-hidden rounded-3xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
       {/* Image */}
@@ -38,7 +46,7 @@ export default function BlogCard({ blog }: { blog: any }) {
           className="mt-6 inline-flex items-center gap-2 font-semibold text-yellow-600 transition hover:text-yellow-500"
         >
           Read More
-          <span>→</span>
+          <span>&rarr;</span>
         </Link>
       </div>
     </article>

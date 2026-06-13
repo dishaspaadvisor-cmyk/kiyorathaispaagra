@@ -6,7 +6,7 @@ export const services = [
     duration: "60 Minutes",
     image: "/images/services/full-body-massage.webp",
     description:
-      "A complete body relaxation therapy designed to reduce stress, improve circulation, and restore energy.",
+      "A complete body massage in Agra designed to reduce stress, relax tired muscles, improve circulation, and restore energy.",
   },
 
   {
@@ -16,7 +16,7 @@ export const services = [
     duration: "90 Minutes",
     image: "/images/services/female-to-male-massage.webp",
     description:
-      "Professional wellness massage provided by trained therapists in a comfortable and relaxing environment.",
+      "Professional female to male massage in Agra provided by trained therapists in a comfortable, hygienic, and relaxing spa environment.",
   },
 
   {
@@ -26,7 +26,7 @@ export const services = [
     duration: "90 Minutes",
     image: "/images/services/four-hand-massage.webp",
     description:
-      "A luxurious massage experience performed by two therapists simultaneously for complete relaxation.",
+      "A luxury four hand massage in Agra performed by two therapists simultaneously for deeper relaxation and complete body comfort.",
   },
 
   {
@@ -36,7 +36,7 @@ export const services = [
     duration: "60 Minutes",
     image: "/images/services/thai-massage.jpg",
     description:
-      "Traditional Thai therapy that improves flexibility, relieves muscle tension, and enhances wellness.",
+      "Traditional Thai massage in Agra that improves flexibility, relieves muscle tension, and supports overall wellness.",
   },
 
   {
@@ -46,7 +46,7 @@ export const services = [
     duration: "90 Minutes",
     image: "/images/services/deep-tissue-massage.jpeg",
     description:
-      "Focused therapy targeting deeper muscle layers to reduce pain, stiffness, and chronic tension.",
+      "Deep tissue massage in Agra focused on deeper muscle layers to reduce stiffness, body pain, and chronic tension.",
   },
 
   {
@@ -56,7 +56,7 @@ export const services = [
     duration: "60 Minutes",
     image: "/images/services/hot-oil-massage.jpg",
     description:
-      "Warm therapeutic oils are used to nourish the skin, relax muscles, and provide deep comfort.",
+      "Hot oil massage in Agra using warm therapeutic oils to nourish the skin, relax muscles, and provide deep comfort.",
   },
 
   {
@@ -66,7 +66,7 @@ export const services = [
     duration: "60 Minutes",
     image: "/images/services/swedish-massage.jpg",
     description:
-      "Gentle and soothing massage therapy that promotes relaxation, stress relief, and better circulation.",
+      "Swedish massage in Agra with gentle, soothing therapy for stress relief, relaxation, and better circulation.",
   },
 
   {
@@ -76,7 +76,7 @@ export const services = [
     duration: "120 Minutes",
     image: "/images/services/jacuzzi-massage.jpg",
     description:
-      "A premium hydrotherapy experience combining warm water relaxation with luxury spa treatments.",
+      "Jacuzzi massage in Agra with premium hydrotherapy, warm water relaxation, and a luxury spa experience.",
   },
 
   {
@@ -86,6 +86,6 @@ export const services = [
     duration: "60 Minutes",
     image: "/images/services/foot-reflexology.jpg",
     description:
-      "Therapeutic foot pressure-point massage designed to improve relaxation, balance, and overall wellness.",
+      "Foot reflexology in Agra using therapeutic pressure points to reduce tiredness, improve comfort, and support wellness.",
   },
 ];

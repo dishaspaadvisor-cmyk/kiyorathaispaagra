@@ -1,4 +1,5 @@
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 import {
   Phone,
   Mail,
@@ -7,25 +8,14 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-export const metadata = {
-  title: `Contact ${siteData.name} | Spa in ${siteData.city}`,
-  description: `Contact ${siteData.name} in ${siteData.city} for spa appointments, Thai massage, wellness therapies, and online booking.`,
-  alternates: {
-    canonical: `${siteData.url}/contact`,
-  },
-  openGraph: {
-    title: `Contact ${siteData.name} | Spa in ${siteData.city}`,
-    description: `Contact ${siteData.name} in ${siteData.city} for spa appointments, Thai massage, wellness therapies, and online booking.`,
-    url: `${siteData.url}/contact`,
-    type: "website",
-    images: [
-      {
-        url: `${siteData.url}/images/smallhero.png`,
-        alt: `Contact ${siteData.name}`,
-      },
-    ],
-  },
-};
+export const metadata = pageMetadata({
+  title: `Contact ${siteData.name} - Spa Booking in ${siteData.city}`,
+  description: `Contact ${siteData.name} in ${siteData.area}, ${siteData.city} for spa appointments, massage booking, Thai massage, full body massage, wellness therapies and online booking near Fatehabad Road.`,
+  path: "/contact",
+  image: "/images/smallhero.png",
+  imageAlt: `Contact ${siteData.name} spa in Agra`,
+  extraKeywords: ["spa booking Agra", "book massage Agra", "spa contact Agra"],
+});
 
 export default function ContactPage() {
   return (
@@ -40,8 +30,8 @@ export default function ContactPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
-            Book your spa appointment, ask questions, or contact us for
-            wellness services in {siteData.city}.
+            Book your spa appointment, ask questions, or contact us for massage
+            and wellness services in {siteData.area}, {siteData.city}.
           </p>
         </div>
       </section>
@@ -53,7 +43,7 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div>
               <h2 className="mb-8 text-4xl font-bold text-gray-900">
-                Visit Our Spa
+                Visit Our Spa in Agra
               </h2>
 
               <div className="space-y-6">
