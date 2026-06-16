@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { siteData } from "@/data/site";
+import Image from "next/image";
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -23,12 +24,8 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex flex-col">
-            <span className="text-2xl font-bold text-yellow-500">
-              Kiyora Thai Spa
-            </span>
-            <span className="text-xs text-center text-gray-300">
-             Agra
-            </span>
+            
+            <Image src="/logo.png" alt={`${siteData.name} logo`} width={220} height={70} className="object-contain" />
           </Link>
 
           {/* Desktop Menu */}

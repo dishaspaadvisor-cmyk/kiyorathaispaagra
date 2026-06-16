@@ -14,9 +14,13 @@ export const metadata = pageMetadata({
 export default function OffersPage() {
   return (
     <main>
-      <section className="relative py-24 text-black" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative py-24 text-white" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+       {/* Dark Luxury Overlay */}
+            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0" />
+      
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <span className="font-semibold uppercase tracking-widest text-yellow-500">
+          <span className="font-semibold uppercase tracking-widest text-white">
             Special Offers
           </span>
 

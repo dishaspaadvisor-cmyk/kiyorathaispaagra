@@ -15,16 +15,20 @@ export const metadata = pageMetadata({
 export default function GalleryPage() {
   return (
     <main>
-      <section className="relative py-24 text-black" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative py-24 text-white" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+         {/* Dark Luxury Overlay */}
+            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0" />
+        
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <span className="font-semibold uppercase tracking-widest text-yellow-500">
+          <span className="font-semibold uppercase tracking-widest text-white">
             Spa Gallery
           </span>
 
           <h1 className="mt-4 text-5xl font-bold md:text-6xl">
             Our Gallery
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
+          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 pl-4 leading-8 text-white">
             Discover luxury spa rooms, tranquil ambience, massage therapy
             spaces, and rejuvenating wellness experiences at {siteData.name} in
             {siteData.city}.

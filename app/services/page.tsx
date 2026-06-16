@@ -21,9 +21,13 @@ export default function ServicesPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative py-20 text-black" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative py-20 text-white" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+       
+        {/* Dark Luxury Overlay */}
+            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0" />
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <span className="text-yellow-500 font-semibold uppercase tracking-widest">
+          <span className="text-white font-semibold uppercase tracking-widest">
             Premium Wellness
           </span>
 
@@ -31,7 +35,7 @@ export default function ServicesPage() {
             Our Spa Services
           </h1>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
+          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-white">
             Discover luxury massage therapies and wellness treatments in
             Siddharth Nagar, Agra. Our spa menu covers body massage, Thai
             massage, deep tissue therapy, Swedish massage, hot oil massage,

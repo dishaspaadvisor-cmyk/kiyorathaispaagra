@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
     <main>
       <section className="bg-black py-24 text-white">
         <div className="container mx-auto px-4 text-center">
-          <span className="font-semibold uppercase tracking-widest text-yellow-500">
+          <span className="font-semibold uppercase tracking-widest text-white">
             Legal Information
           </span>
 
@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
 
-          <p className="mx-auto mt-6 max-w-3xl text-yellow-400 text-lg border-l-4 border-yellow-500 pl-4 leading-8">
+          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8">
             Your privacy is important to us. This Privacy Policy explains how{" "}
             {siteData.name} collects, uses, and protects your information.
           </p>

@@ -15,16 +15,23 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <main>
-      <section className="relative py-24 text-black"
-        style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative  py-24 text-white" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+       {/* Dark Luxury Overlay */}
+            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0" />
+       
         <div className="container relative z-10 mx-auto px-4 text-center">
+
+          <span className="font-semibold uppercase tracking-widest text-white">
+            About Us
+          </span>
          
 
           <h1 className="mt-4 text-5xl font-bold md:text-6xl">
             {siteData.name}
           </h1>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
+          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-white">
             A luxury spa and massage experience in {siteData.area},{" "}
             {siteData.city}, created for complete relaxation, wellness,
             comfort, and peace.
@@ -32,7 +39,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-gradient-to-b from-white via-yellow-50 to-amber-50 py-20">
         <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2">
           <div className="relative h-105 overflow-hidden rounded-3xl shadow-2xl">
             <Image
@@ -71,7 +78,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gradient-to-b from-amber-50 via-yellow-50 to-white py-20">
         <div className="container mx-auto grid gap-6 px-4 md:grid-cols-2 lg:grid-cols-4">
           {[
             {

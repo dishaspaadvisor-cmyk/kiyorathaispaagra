@@ -17,7 +17,11 @@ export default function BlogPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative py-24 text-black" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative py-24 text-white bg-"  style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+        
+         {/* Dark Luxury Overlay */}
+            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0" />
         <div className="container relative z-10 mx-auto px-4 text-center">
           
             <h1 className="mt-4 text-5xl font-bold md:text-6xl">
@@ -25,7 +29,7 @@ export default function BlogPage() {
             </h1>
          
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 border-yellow-500 pl-4 leading-8 text-yellow-400">
+          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 pl-4 leading-8">
             Discover massage benefits, wellness tips, relaxation techniques,
             and luxury spa experiences in Agra across full body massage, Thai
             massage, Swedish massage, deep tissue massage, hot oil massage,

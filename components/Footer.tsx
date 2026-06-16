@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, Globe, ImageIcon, Play } from "lucide-react";
 import { siteData } from "@/data/site";
 import { services } from "@/data/service";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -41,9 +42,7 @@ export default function Footer() {
         <div className="container mx-auto grid gap-10 px-4 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-yellow-500">
-              {siteData.name}
-            </h3>
+           <Image className="mb-4 object-contain" src="/logo.png" alt={`${siteData.name} logo`} width={220} height={70} />
             <p className="mt-4 leading-7 text-gray-400">
               Premium Thai spa and wellness experience in {siteData.area},{" "}
               {siteData.city}. Enjoy luxury massage therapies, peaceful ambience,
