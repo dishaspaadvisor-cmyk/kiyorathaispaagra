@@ -4,12 +4,35 @@ import { siteData } from "@/data/site";
 import { pageMetadata } from "@/data/seo";
 
 export const metadata = pageMetadata({
-  title: `Spa Gallery in ${siteData.city} | ${siteData.name}`,
-  description: `View spa rooms, massage therapy setup, Jacuzzi ambience, hot oil massage space, aromatherapy setup and wellness gallery of ${siteData.name} in ${siteData.city}.`,
+  title: `Spa Gallery in ${siteData.city} | Massage Rooms & Wellness Photos | ${siteData.name}`,
+
+  description: `View the spa gallery of ${siteData.name} in Siddharth Nagar, ${siteData.city}. Explore spa rooms, massage therapy setup, Jacuzzi ambience, hot oil massage space, aromatherapy area, relaxation rooms and wellness interiors near Fatehabad Road, Tajganj and Agra Cantt.`,
+
   path: "/gallery",
+
   image: "/images/smallhero.png",
-  imageAlt: `${siteData.name} spa gallery in Agra`,
-  extraKeywords: ["spa gallery Agra", "massage room Agra", "spa photos Agra"],
+
+  imageAlt: `${siteData.name} spa gallery, massage rooms and wellness interiors in Agra`,
+
+  extraKeywords: [
+    "spa gallery Agra",
+    "massage room Agra",
+    "spa photos Agra",
+    "spa images Agra",
+    "massage therapy room Agra",
+    "spa interior Agra",
+    "luxury spa gallery Agra",
+    "wellness center photos Agra",
+    "Jacuzzi spa photos Agra",
+    "hot oil massage room Agra",
+    "aromatherapy setup Agra",
+    "spa gallery in Siddharth Nagar Agra",
+    "massage room near Fatehabad Road Agra",
+    "spa photos near Tajganj Agra",
+    "spa near Taj Mahal photos",
+    "Kiyora Thai Spa gallery",
+    "Kiyora Thai Spa Agra photos",
+  ],
 });
 
 export default function GalleryPage() {

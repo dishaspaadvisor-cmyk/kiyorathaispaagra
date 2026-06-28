@@ -11,15 +11,51 @@ import { Sparkles, ShieldCheck, Heart, Star, Quote } from "lucide-react";
 
 export const metadata = pageMetadata({
   title: siteData.seo.title,
+
   description: siteData.seo.description,
-  imageAlt: `${siteData.name} spa and massage center in Agra`,
+
+  path: "/",
+
+  image: "/images/smallhero.png",
+
+  imageAlt: `${siteData.name} premium spa and massage center in Siddharth Nagar Agra near Fatehabad Road`,
+
   extraKeywords: [
-    "spa near Taj Mahal Agra",
+    "spa in Agra",
+    "best spa in Agra",
+    "massage in Agra",
+    "best massage in Agra",
     "spa near me Agra",
     "massage near me Agra",
+
+    "spa in Siddharth Nagar Agra",
+    "massage in Siddharth Nagar Agra",
+    "spa near Siddharth Nagar Agra",
+
+    "spa near Fatehabad Road Agra",
+    "massage near Fatehabad Road Agra",
+    "spa near Tajganj Agra",
+    "massage near Tajganj Agra",
+    "spa near Agra Cantt",
+    "spa near Sadar Bazaar Agra",
+    "spa near Taj Mahal Agra",
+
+    "full body massage in Agra",
+    "Thai massage in Agra",
+    "Swedish massage in Agra",
+    "deep tissue massage in Agra",
+    "hot oil massage in Agra",
+    "aromatherapy massage in Agra",
+    "Jacuzzi massage in Agra",
+    "foot reflexology in Agra",
+
+    "luxury spa in Agra",
+    "premium spa in Agra",
+    "wellness center in Agra",
+    "massage center in Agra",
+    "Kiyora Thai Spa Agra",
   ],
 });
-
 
 const reviews = [
   {
@@ -60,9 +96,59 @@ const reviews = [
 ];
 
 export default function HomePage() {
+  const localAreas = [
+    "Siddharth Nagar",
+    "Fatehabad Road",
+    "Tajganj",
+    "Agra Cantt",
+    "Sadar Bazaar",
+    "Sanjay Place",
+    "Civil Lines",
+    "Taj Mahal nearby area",
+  ];
+
+  const homeFaqs = [
+    {
+      question: "Which is the best spa in Siddharth Nagar Agra?",
+      answer:
+        "Kiyora Thai Spa is a premium spa and massage center in Siddharth Nagar, Agra, offering full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, Jacuzzi massage, aromatherapy and foot reflexology.",
+    },
+    {
+      question: "Is Kiyora Thai Spa near Fatehabad Road Agra?",
+      answer:
+        "Yes, Kiyora Thai Spa is located at Ramesh Plaza, Fatehabad Road, Siddharth Nagar, Agra, near Tajganj and Agra Cantt.",
+    },
+    {
+      question: "What massage services are available at Kiyora Thai Spa Agra?",
+      answer:
+        "Our services include full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, aromatherapy massage, Jacuzzi massage and foot reflexology.",
+    },
+  ];
+
   return (
     <main>
       <Hero />
+
+      {/* Local SEO Intro */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <span className="font-semibold uppercase tracking-widest text-yellow-600">
+            Kiyora Thai Spa Agra
+          </span>
+
+          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-bold text-gray-900 md:text-5xl">
+            Best Spa & Massage Center in Siddharth Nagar, Agra
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-4xl leading-8 text-gray-600">
+            Kiyora Thai Spa is a premium spa and massage center in Siddharth
+            Nagar, Agra, near Fatehabad Road, Tajganj and Agra Cantt. We offer
+            full body massage, Thai massage, Swedish massage, deep tissue
+            massage, hot oil massage, aromatherapy, Jacuzzi massage and foot
+            reflexology for complete relaxation and wellness.
+          </p>
+        </div>
+      </section>
 
       {/* Services */}
       <section className="bg-gray-50 py-20">
@@ -76,11 +162,13 @@ export default function HomePage() {
               Spa & Massage Services in Agra
             </h2>
 
-            <p className="mx-auto mt-5 max-w-3xl text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
               Experience full body massage, Thai massage, Swedish massage, deep
-              tissue massage, hot oil massage, Jacuzzi massage, foot reflexology,
+              tissue massage, hot oil massage, Jacuzzi massage, foot reflexology
               and aromatherapy at {siteData.name} in {siteData.area},{" "}
-              {siteData.city}.
+              {siteData.city}. Our spa is a convenient choice for customers
+              searching for spa near Fatehabad Road, massage near Tajganj and
+              wellness center near Agra Cantt.
             </p>
           </div>
 
@@ -100,10 +188,56 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
-       {/* Reviews */}
+
+      {/* Local Areas */}
       <section className="bg-white py-20">
-       <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 text-center">
+          <span className="font-semibold uppercase tracking-widest text-yellow-600">
+            Local Spa Near You
+          </span>
+
+          <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
+            Spa Near Fatehabad Road, Tajganj & Agra Cantt
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
+            Located in Siddharth Nagar, Kiyora Thai Spa serves customers from
+            Fatehabad Road, Tajganj, Agra Cantt, Sadar Bazaar, Sanjay Place,
+            Civil Lines and nearby areas around the Taj Mahal.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {localAreas.map((area) => (
+              <span
+                key={area}
+                className="rounded-full border border-yellow-300 bg-yellow-50 px-5 py-3 text-sm font-semibold text-gray-800"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <span className="font-semibold uppercase tracking-widest text-yellow-600">
+              Customer Reviews
+            </span>
+
+            <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
+              Trusted Spa Experience in Agra
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
+              Our customers choose Kiyora Thai Spa for relaxing massage,
+              hygienic rooms, peaceful ambience and professional spa services in
+              Siddharth Nagar, Agra.
+            </p>
+          </div>
+
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {reviews.map((item) => (
               <article
@@ -140,8 +274,14 @@ export default function HomePage() {
             </span>
 
             <h2 className="mt-4 text-4xl font-bold md:text-5xl">
-              Premium Wellness Experience
+              Premium Wellness Experience in Agra
             </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-400">
+              Choose {siteData.name} for luxury ambience, hygienic spa rooms,
+              trained therapists and relaxing massage therapies in Siddharth
+              Nagar, Agra.
+            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -149,12 +289,12 @@ export default function HomePage() {
               {
                 icon: Sparkles,
                 title: "Luxury Ambience",
-                text: "Peaceful interiors for a relaxing spa experience.",
+                text: "Peaceful interiors for a relaxing spa experience in Agra.",
               },
               {
                 icon: ShieldCheck,
                 title: "Hygienic Rooms",
-                text: "Clean, private, and comfortable treatment rooms.",
+                text: "Clean, private and comfortable treatment rooms.",
               },
               {
                 icon: Heart,
@@ -172,7 +312,9 @@ export default function HomePage() {
                 className="rounded-3xl border border-yellow-500/20 bg-white/5 p-8 text-center"
               >
                 <item.icon className="mx-auto text-yellow-500" size={42} />
+
                 <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
+
                 <p className="mt-3 text-gray-400">{item.text}</p>
               </div>
             ))}
@@ -189,8 +331,14 @@ export default function HomePage() {
             </span>
 
             <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
-              Latest Spa Articles
+              Latest Spa & Massage Articles in Agra
             </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
+              Read helpful wellness articles, massage guides, Thai massage tips,
+              full body massage benefits and spa care advice from Kiyora Thai
+              Spa Agra.
+            </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -210,8 +358,32 @@ export default function HomePage() {
         </div>
       </section>
 
-     
+      {/* FAQ */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="font-semibold uppercase tracking-widest text-yellow-600">
+              FAQ
+            </span>
 
+            <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
+              Spa & Massage in Agra
+            </h2>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-4xl space-y-5">
+            {homeFaqs.map((faq) => (
+              <div key={faq.question} className="rounded-2xl bg-yellow-50 p-6">
+                <h3 className="text-xl font-bold text-gray-900">
+                  {faq.question}
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

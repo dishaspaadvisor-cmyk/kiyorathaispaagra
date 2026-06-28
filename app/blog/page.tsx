@@ -4,13 +4,51 @@ import { siteData } from "@/data/site";
 import { pageMetadata } from "@/data/seo";
 
 export const metadata = pageMetadata({
-  title: `Spa & Massage Blog in ${siteData.city} | ${siteData.name}`,
+  title: `Spa & Massage Blog in ${siteData.city} | Wellness Tips in Siddharth Nagar | ${siteData.name}`,
+
   description:
-    "Read wellness articles, massage guides, Thai massage tips, full body massage benefits, deep tissue massage advice, spa treatments and relaxation tips from Kiyora Thai Spa Agra.",
+    `Read spa and massage blogs from ${siteData.name} in Siddharth Nagar, ${siteData.city}. Explore wellness tips, full body massage benefits, Thai massage guides, Swedish massage advice, deep tissue massage tips, hot oil massage, aromatherapy, Jacuzzi spa and foot reflexology articles for people near Fatehabad Road, Tajganj, Agra Cantt and nearby Agra areas.`,
+
   path: "/blog",
+
   image: "/images/smallhero.png",
-  imageAlt: "Spa and massage blog by Kiyora Thai Spa Agra",
-  extraKeywords: ["spa blog Agra", "massage guide Agra", "wellness tips Agra"],
+
+  imageAlt: `Spa and massage blog by ${siteData.name} in Siddharth Nagar Agra`,
+
+  extraKeywords: [
+    "spa blog Agra",
+    "massage blog Agra",
+    "spa and massage blog Agra",
+    "wellness blog Agra",
+    "wellness tips Agra",
+    "massage guide Agra",
+    "spa guide Agra",
+
+    "spa blog in Siddharth Nagar Agra",
+    "massage blog in Siddharth Nagar Agra",
+    "wellness tips in Siddharth Nagar Agra",
+
+    "spa tips near Fatehabad Road Agra",
+    "massage guide near Fatehabad Road Agra",
+    "spa blog near Tajganj Agra",
+    "massage tips near Tajganj Agra",
+    "spa blog near Agra Cantt",
+    "wellness tips near Taj Mahal Agra",
+
+    "full body massage benefits Agra",
+    "Thai massage benefits Agra",
+    "Swedish massage guide Agra",
+    "deep tissue massage tips Agra",
+    "hot oil massage benefits Agra",
+    "aromatherapy massage tips Agra",
+    "Jacuzzi spa benefits Agra",
+    "foot reflexology benefits Agra",
+
+    "best spa tips Agra",
+    "best massage guide Agra",
+    "Kiyora Thai Spa blog",
+    "Kiyora Thai Spa Agra blog",
+  ],
 });
 
 export default function BlogPage() {

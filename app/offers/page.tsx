@@ -3,12 +3,36 @@ import { pageMetadata } from "@/data/seo";
 import Link from "next/link";
 
 export const metadata = pageMetadata({
-  title: `Spa Offers in ${siteData.city} | ${siteData.name}`,
-  description: `Discover spa offers, massage packages, wellness deals and special booking discounts for full body massage, Thai massage, aromatherapy and relaxation therapies at ${siteData.name} in ${siteData.city}.`,
+  title: `Spa Offers in ${siteData.city} | Massage Packages & Deals | ${siteData.name}`,
+
+  description: `Explore spa offers, massage packages and wellness deals at ${siteData.name} in Siddharth Nagar, ${siteData.city}. Book full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, aromatherapy, foot reflexology and Jacuzzi massage packages near Fatehabad Road, Tajganj and Agra Cantt.`,
+
   path: "/offers",
+
   image: "/images/smallhero.png",
-  imageAlt: `Spa offers at ${siteData.name} Agra`,
-  extraKeywords: ["spa offers Agra", "massage package Agra", "spa discount Agra"],
+
+  imageAlt: `Spa offers and massage packages at ${siteData.name} in Agra`,
+
+  extraKeywords: [
+    "spa offers Agra",
+    "massage package Agra",
+    "spa discount Agra",
+    "spa deals Agra",
+    "massage offers Agra",
+    "full body massage offers Agra",
+    "Thai massage offers Agra",
+    "Swedish massage package Agra",
+    "deep tissue massage offers Agra",
+    "hot oil massage package Agra",
+    "aromatherapy massage offers Agra",
+    "Jacuzzi massage package Agra",
+    "spa offers in Siddharth Nagar Agra",
+    "massage offers near Fatehabad Road Agra",
+    "spa packages near Tajganj Agra",
+    "best spa offers in Agra",
+    "wellness deals Agra",
+    "spa booking discount Agra",
+  ],
 });
 
 export default function OffersPage() {
