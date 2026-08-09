@@ -6,12 +6,15 @@ import {
 } from "react-icons/fa6";
 import { siteData } from "@/data/site";
 
+const desktopHeroVideo = "/videos/hero-desktop.mp4";
+const mobileHeroVideo = "/videos/hero-mobile.mp4";
+
 export default function Hero() {
   return (
     <section className="relative min-h-[88svh] overflow-hidden bg-black">
-      {/* Background Video */}
+      {/* Desktop Video */}
       <video
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
         autoPlay
         muted
         loop
@@ -20,39 +23,49 @@ export default function Hero() {
         poster="/images/kiyorathaispa.png"
         aria-hidden="true"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src={desktopHeroVideo} type="video/mp4" />
       </video>
 
-      {/* Light Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-black/5" />
+      {/* Mobile Video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-center md:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/kiyorathaispa.png"
+        aria-hidden="true"
+      >
+        <source src={mobileHeroVideo} type="video/mp4" />
+      </video>
 
-      {/* Bottom Soft Gradient */}
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/5 md:from-black/50 md:via-black/20" />
+
+      {/* Bottom Gradient */}
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/35 to-transparent" />
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto flex min-h-[88svh] items-center px-4 py-24">
+      <div className="container relative z-10 mx-auto flex min-h-[88svh] items-end px-4 pb-16 pt-24 sm:items-center sm:pb-20 md:py-24">
         <div className="max-w-2xl">
-          {/* Small Label */}
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md sm:text-sm">
+          {/* Label */}
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-[11px] font-semibold text-white backdrop-blur-md sm:mb-5 sm:px-4 sm:text-sm">
             <FaStar className="text-yellow-400" />
             Premium Spa & Massage in Agra
           </div>
 
-          {/* Heading */}
-          <h1 className="max-w-2xl text-4xl font-bold leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Relax. Refresh.
-            <span className="block text-yellow-400">Feel Your Best.</span>
-          </h1>
+       
 
           {/* Short Description */}
-          <p className="mt-5 max-w-xl text-base leading-7 text-white/85 md:text-lg">
-            Premium massage therapies, private rooms and a peaceful spa
-            experience at {siteData.name}.
+          <p className="mt-4 max-w-xl text-sm leading-6 text-white/85 sm:mt-5 sm:text-base sm:leading-7 md:text-lg">
+            Premium massage therapies, private rooms and peaceful wellness at{" "}
+            {siteData.name}.
           </p>
 
           {/* Location */}
-          <div className="mt-5 flex max-w-xl items-start gap-2 text-sm text-white/80">
-            <FaLocationDot className="mt-1 shrink-0 text-yellow-400" />
+          <div className="mt-4 flex max-w-xl items-start gap-2 text-xs text-white/80 sm:mt-5 sm:text-sm">
+            <FaLocationDot className="mt-0.5 shrink-0 text-yellow-400" />
 
             <span>
               Siddharth Nagar, Fatehabad Road, Agra
@@ -60,12 +73,12 @@ export default function Hero() {
           </div>
 
           {/* CTA */}
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex gap-3 sm:mt-8">
             <a
               href={siteData.callLink}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-yellow-400 px-6 text-sm font-bold text-gray-950 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-300"
+              className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full bg-yellow-400 px-4 text-xs font-bold text-gray-950 shadow-lg transition-all duration-300 hover:bg-yellow-300 sm:h-12 sm:flex-none sm:px-6 sm:text-sm"
             >
-              <FaPhone size={14} />
+              <FaPhone size={13} />
               Call Now
             </a>
 
@@ -73,7 +86,7 @@ export default function Hero() {
               href={siteData.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-gray-950"
+              className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 text-xs font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-gray-950 sm:h-12 sm:flex-none sm:px-6 sm:text-sm"
             >
               <FaWhatsapp size={17} />
               WhatsApp
