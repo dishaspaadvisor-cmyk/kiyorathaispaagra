@@ -1,5 +1,10 @@
+"use client";
+
+"use client";
+
 import { FaPhone, FaCalendarCheck } from "react-icons/fa6";
 import { siteData } from "@/data/site";
+import { trackGoogleAdsConversionAndNavigate } from "@/src/lib/googleAds";
 
 export default function BottomCTA() {
   return (
@@ -27,6 +32,10 @@ export default function BottomCTA() {
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <a
               href={siteData.callLink}
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.callLink);
+              }}
               className="flex h-12 items-center justify-center gap-2 rounded-full border border-yellow-300 bg-yellow-50 px-6 text-sm font-bold text-gray-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-100"
             >
               <FaPhone size={15} />
@@ -35,8 +44,10 @@ export default function BottomCTA() {
 
             <a
               href={siteData.bookingLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.bookingLink);
+              }}
               className="flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 px-7 text-sm font-bold text-gray-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
               <FaCalendarCheck size={16} />

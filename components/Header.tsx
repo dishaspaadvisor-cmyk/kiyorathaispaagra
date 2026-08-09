@@ -11,6 +11,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa6";
 import { siteData } from "@/data/site";
+import { trackGoogleAdsConversionAndNavigate } from "@/src/lib/googleAds";
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -74,6 +75,10 @@ export default function Header() {
             <a
               href={siteData.callLink}
               aria-label="Call Kiyora Thai Spa"
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.callLink);
+              }}
               className="flex h-11 items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-800 transition-all duration-300 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
             >
               <FaPhone size={15} />
@@ -82,9 +87,11 @@ export default function Header() {
 
             <a
               href={siteData.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="WhatsApp Kiyora Thai Spa"
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.whatsappLink);
+              }}
               className="flex h-11 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1fbd5a]"
             >
               <FaWhatsapp size={17} />
@@ -93,9 +100,11 @@ export default function Header() {
 
             <a
               href={siteData.bookingLink}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="Book appointment"
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.bookingLink);
+              }}
               className="flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 px-5 text-sm font-bold text-gray-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
               <FaCalendarCheck size={16} />
@@ -140,6 +149,10 @@ export default function Header() {
             <div className="mt-5 grid grid-cols-2 gap-3">
               <a
                 href={siteData.callLink}
+                onClick={(event) => {
+                  event.preventDefault();
+                  trackGoogleAdsConversionAndNavigate(siteData.callLink);
+                }}
                 className="flex h-12 items-center justify-center gap-2 rounded-xl border border-yellow-300 bg-yellow-50 text-sm font-semibold text-gray-900"
               >
                 <FaPhone size={15} />
@@ -148,8 +161,10 @@ export default function Header() {
 
               <a
                 href={siteData.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={(event) => {
+                  event.preventDefault();
+                  trackGoogleAdsConversionAndNavigate(siteData.whatsappLink);
+                }}
                 className="flex h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] text-sm font-semibold text-white"
               >
                 <FaWhatsapp size={17} />
@@ -159,8 +174,10 @@ export default function Header() {
 
             <a
               href={siteData.bookingLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.bookingLink);
+              }}
               className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-yellow-500 text-sm font-bold text-gray-950"
             >
               <FaCalendarCheck size={16} />

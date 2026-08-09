@@ -2,6 +2,7 @@
 
 import { FaPhone, FaWhatsapp } from "react-icons/fa6";
 import { siteData } from "@/data/site";
+import { trackGoogleAdsConversionAndNavigate } from "@/src/lib/googleAds";
 
 export default function FloatingButton() {
   return (
@@ -10,9 +11,11 @@ export default function FloatingButton() {
       {/* WhatsApp */}
       <a
         href={`https://wa.me/${siteData.whatsapp}`}
-        target="_blank"
-        rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        onClick={(event) => {
+          event.preventDefault();
+          trackGoogleAdsConversionAndNavigate(siteData.whatsappLink);
+        }}
         className="group flex items-center justify-end"
       >
         {/* Desktop Label */}
@@ -29,6 +32,10 @@ export default function FloatingButton() {
       <a
         href={`tel:${siteData.phone}`}
         aria-label="Call Now"
+        onClick={(event) => {
+          event.preventDefault();
+          trackGoogleAdsConversionAndNavigate(siteData.callLink);
+        }}
         className="group flex items-center justify-end"
       >
         {/* Desktop Label */}

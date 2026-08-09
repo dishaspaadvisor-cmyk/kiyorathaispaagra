@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { galleryImages } from "@/data/gallery";
 import { siteData } from "@/data/site";
 import { pageMetadata } from "@/data/seo";
 import {
@@ -7,6 +6,7 @@ import {
   FaLocationDot,
   FaWhatsapp,
 } from "react-icons/fa6";
+import GalleryWhatsAppCards from "@/components/GalleryWhatsAppCards";
 
 export const metadata = pageMetadata({
   title: `Spa Gallery in ${siteData.city} | Massage Rooms & Wellness Photos | ${siteData.name}`,
@@ -103,49 +103,7 @@ export default function GalleryPage() {
       {/* Gallery */}
       <section className="bg-[#fffaf2] py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryImages.map((item, index) => (
-              <a
-                key={item.id}
-                href={siteData.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Enquire about ${item.title} on WhatsApp`}
-                className={`group relative block overflow-hidden rounded-[28px] bg-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.14)] ${index === 0
-                    ? "h-[420px] sm:col-span-2 lg:h-[500px]"
-                    : "h-[320px] sm:h-[350px] lg:h-[380px]"
-                  }`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  priority={index === 0}
-                  sizes={
-                    index === 0
-                      ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
-                      : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  }
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Bottom Gradient */}
-                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                  <h2 className="text-lg font-bold text-white sm:text-xl">
-                    {item.title}
-                  </h2>
-
-                  <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-white/90">
-                    <FaWhatsapp className="text-[#25D366]" size={16} />
-                    Tap to enquire on WhatsApp
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+          <GalleryWhatsAppCards />
         </div>
       </section>
 

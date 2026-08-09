@@ -6,6 +6,7 @@ import {
   FaCircleCheck,
   FaTriangleExclamation,
 } from "react-icons/fa6";
+import { trackGoogleAdsConversion } from "@/src/lib/googleAds";
 
 type FormErrors = {
   name?: string;
@@ -113,6 +114,8 @@ export default function ContactForm() {
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
+
+      trackGoogleAdsConversion();
 
       setStatus("success");
 

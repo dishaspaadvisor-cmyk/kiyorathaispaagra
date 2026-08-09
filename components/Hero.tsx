@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FaPhone,
   FaWhatsapp,
@@ -5,6 +7,7 @@ import {
   FaStar,
 } from "react-icons/fa6";
 import { siteData } from "@/data/site";
+import { trackGoogleAdsConversionAndNavigate } from "@/src/lib/googleAds";
 
 const desktopHeroVideo = "/videos/hero-desktop.mp4";
 const mobileHeroVideo = "/videos/hero-mobile.mp4";
@@ -76,6 +79,10 @@ export default function Hero() {
           <div className="mt-6 flex gap-3 sm:mt-8">
             <a
               href={siteData.callLink}
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.callLink);
+              }}
               className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full bg-yellow-400 px-4 text-xs font-bold text-gray-950 shadow-lg transition-all duration-300 hover:bg-yellow-300 sm:h-12 sm:flex-none sm:px-6 sm:text-sm"
             >
               <FaPhone size={13} />
@@ -84,8 +91,10 @@ export default function Hero() {
 
             <a
               href={siteData.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.preventDefault();
+                trackGoogleAdsConversionAndNavigate(siteData.whatsappLink);
+              }}
               className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 text-xs font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-gray-950 sm:h-12 sm:flex-none sm:px-6 sm:text-sm"
             >
               <FaWhatsapp size={17} />

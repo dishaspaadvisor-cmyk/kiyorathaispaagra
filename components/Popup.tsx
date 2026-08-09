@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
@@ -10,6 +12,7 @@ import {
   FaPercent,
 } from "react-icons/fa6";
 import { siteData } from "@/data/site";
+import { trackGoogleAdsConversionAndNavigate } from "@/src/lib/googleAds";
 
 export default function Popup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,6 +112,10 @@ export default function Popup() {
             <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-7 sm:gap-3">
               <a
                 href={siteData.callLink}
+                onClick={(event) => {
+                  event.preventDefault();
+                  trackGoogleAdsConversionAndNavigate(siteData.callLink);
+                }}
                 className="flex h-11 items-center justify-center gap-2 rounded-full border border-yellow-300 bg-yellow-50 px-3 text-xs font-bold text-gray-900 transition-all duration-300 hover:bg-yellow-100 sm:h-12 sm:px-4 sm:text-sm"
                 aria-label="Call now to book massage"
               >
@@ -118,8 +125,10 @@ export default function Popup() {
 
               <a
                 href={siteData.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={(event) => {
+                  event.preventDefault();
+                  trackGoogleAdsConversionAndNavigate(siteData.whatsappLink);
+                }}
                 className="flex h-11 items-center justify-center gap-2 rounded-full bg-[#25D366] px-3 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:bg-[#1fbd5a] sm:h-12 sm:px-4 sm:text-sm"
                 aria-label="Book massage on WhatsApp"
               >
