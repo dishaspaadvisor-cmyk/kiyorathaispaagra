@@ -47,52 +47,52 @@ export async function generateMetadata({
     };
   }
 
-  return {
-    title: `${service.title} in ${siteData.city} | ${siteData.area} Spa | ${siteData.name}`,
+  const pageUrl = `${siteData.url}/services/${service.slug}`;
 
-    description: `${service.description} Book ${service.title.toLowerCase()} at ${
-      siteData.name
-    } in ${siteData.area}, ${
-      siteData.city
-    }, near Fatehabad Road, Tajganj, Agra Cantt and nearby Taj Mahal areas.`,
+  const title = `${service.title} in Agra | ${siteData.name}`;
+
+  const description = `${service.description} Book ${service.title.toLowerCase()} at ${siteData.name} in Siddharth Nagar, Agra, near Fatehabad Road, Tajganj and Agra Cantt.`;
+
+  return {
+    title,
+
+    description,
 
     keywords: keywords([
-      `${service.title} in ${siteData.city}`,
-      `${service.title} in ${siteData.area} ${siteData.city}`,
+      `${service.title} in Agra`,
+      `${service.title} in Siddharth Nagar Agra`,
       `${service.title} near Fatehabad Road Agra`,
       `${service.title} near Tajganj Agra`,
-      `${service.title} near Agra Cantt`,
-      `${service.title} near Taj Mahal Agra`,
-      `spa in ${siteData.city}`,
-      `massage in ${siteData.city}`,
-      `spa in ${siteData.area} ${siteData.city}`,
-      `massage in ${siteData.area} ${siteData.city}`,
       `book ${service.title} Agra`,
-      `${siteData.name} ${service.title}`,
       ...(service.localKeywords || []),
     ]),
 
     alternates: {
-      canonical: `${siteData.url}/services/${service.slug}`,
+      canonical: pageUrl,
     },
 
     openGraph: {
-      title: `${service.title} in ${siteData.city} | ${siteData.name}`,
-      description: `${service.description} Available at ${siteData.name} in ${siteData.area}, ${siteData.city}, near Fatehabad Road, Tajganj and Agra Cantt.`,
-      url: `${siteData.url}/services/${service.slug}`,
+      title,
+      description,
+      url: pageUrl,
+      siteName: siteData.name,
+      locale: "en_IN",
       type: "website",
+
       images: [
         {
           url: absoluteUrl(service.image),
-          alt: `${service.title} at ${siteData.name} in Siddharth Nagar Agra`,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} at ${siteData.name} in Agra`,
         },
       ],
     },
 
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} in ${siteData.city} | ${siteData.name}`,
-      description: `${service.description} Book at ${siteData.name} in ${siteData.area}, ${siteData.city}.`,
+      title,
+      description,
       images: [absoluteUrl(service.image)],
     },
   };
@@ -133,35 +133,46 @@ export default async function ServiceDetailsPage({ params }: Params) {
     },
   ];
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${service.title} in ${siteData.city}`,
-    serviceType: service.title,
-    description: service.description,
-    image: absoluteUrl(service.image),
-    url: absoluteUrl(`/services/${service.slug}`),
+const serviceSchema = {
+  "@context": "https://schema.org",
 
-    provider: {
-      "@type": "HealthAndBeautyBusiness",
-      "@id": `${siteData.url}/#business`,
-      name: siteData.name,
-      url: siteData.url,
-      telephone: siteData.phone,
-      email: siteData.email,
+  "@type": "Service",
 
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: siteData.address,
-        addressLocality: siteData.city,
-        addressRegion: siteData.state,
-        postalCode: siteData.pincode,
-        addressCountry: "IN",
-      },
+  "@id": `${siteData.url}/services/${service.slug}#service`,
+
+  name: `${service.title} in Agra`,
+
+  serviceType: service.title,
+
+  description: service.description,
+
+  image: absoluteUrl(service.image),
+
+  url: absoluteUrl(`/services/${service.slug}`),
+
+  provider: {
+    "@id": `${siteData.url}/#business`,
+  },
+
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Agra",
     },
-
-    areaServed: nearbyAreas,
-  };
+    {
+      "@type": "Place",
+      name: "Siddharth Nagar, Agra",
+    },
+    {
+      "@type": "Place",
+      name: "Fatehabad Road, Agra",
+    },
+    {
+      "@type": "Place",
+      name: "Tajganj, Agra",
+    },
+  ],
+};
 
   const faqSchema = {
     "@context": "https://schema.org",

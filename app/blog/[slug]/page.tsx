@@ -33,6 +33,7 @@ export async function generateMetadata({
   params,
 }: Params): Promise<Metadata> {
   const { slug } = await params;
+
   const blog = blogs.find((item) => item.slug === slug);
 
   if (!blog) {
@@ -45,25 +46,39 @@ export async function generateMetadata({
     };
   }
 
+  const pageUrl = `${siteData.url}/blog/${blog.slug}`;
+
   return {
     title: blog.title,
+
     description: blog.excerpt,
 
     keywords: keywords([
       blog.title,
+      `${blog.title} Agra`,
       "Spa Blog Agra",
       "Massage Blog Agra",
       "Wellness Blog Agra",
+      `${siteData.name} Blog`,
     ]),
+
+    alternates: {
+      canonical: pageUrl,
+    },
 
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
-      url: `${siteData.url}/blog/${blog.slug}`,
+      url: pageUrl,
+      siteName: siteData.name,
+      locale: "en_IN",
       type: "article",
+
       images: [
         {
           url: absoluteUrl(blog.image),
+          width: 1200,
+          height: 630,
           alt: `${blog.title} by ${siteData.name}`,
         },
       ],
@@ -74,10 +89,6 @@ export async function generateMetadata({
       title: blog.title,
       description: blog.excerpt,
       images: [absoluteUrl(blog.image)],
-    },
-
-    alternates: {
-      canonical: `${siteData.url}/blog/${blog.slug}`,
     },
   };
 }
@@ -95,33 +106,40 @@ export default async function BlogDetailsPage({ params }: Params) {
     .filter((item) => item.id !== blog.id)
     .slice(0, 3);
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: blog.title,
-    description: blog.excerpt,
-    image: absoluteUrl(blog.image),
-    datePublished: blog.date,
-    dateModified: blog.date,
+const articleSchema = {
+  "@context": "https://schema.org",
 
-    author: {
-      "@type": "Organization",
-      name: blog.author || siteData.name,
-      url: siteData.url,
-    },
+  "@type": "BlogPosting",
 
-    publisher: {
-      "@type": "Organization",
-      name: siteData.name,
+  "@id": `${siteData.url}/blog/${blog.slug}#article`,
 
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl("/favicon.png"),
-      },
-    },
+  headline: blog.title,
 
-    mainEntityOfPage: absoluteUrl(`/blog/${blog.slug}`),
-  };
+  description: blog.excerpt,
+
+  image: absoluteUrl(blog.image),
+
+  url: absoluteUrl(`/blog/${blog.slug}`),
+
+  datePublished: blog.date,
+
+  dateModified: blog.date,
+
+  author: {
+    "@type": "Organization",
+    name: blog.author || siteData.name,
+    url: siteData.url,
+  },
+
+  publisher: {
+    "@id": `${siteData.url}/#business`,
+  },
+
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": absoluteUrl(`/blog/${blog.slug}`),
+  },
+};
 
   return (
     <main className="overflow-hidden bg-white">

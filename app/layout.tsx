@@ -6,13 +6,17 @@ import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import BottomCTA from "@/components/BottomCTA";
 import Popup from "@/components/Popup";
-
+import Script from "next/script";
 import { siteData } from "@/data/site";
 import {
   absoluteUrl,
   coreServiceKeywords,
   jsonLd,
 } from "@/data/seo";
+
+/* =========================================================
+   GLOBAL WEBSITE METADATA
+========================================================= */
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteData.url),
@@ -26,13 +30,38 @@ export const metadata: Metadata = {
 
   keywords: siteData.seo.keywords,
 
+  applicationName: siteData.name,
+
+  authors: [
+    {
+      name: siteData.name,
+      url: siteData.url,
+    },
+  ],
+
+  creator: siteData.name,
+
+  publisher: siteData.name,
+
+  category: "Spa and Wellness",
+
   icons: {
     icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 
   robots: {
     index: true,
     follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   verification: {
@@ -45,48 +74,77 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: siteData.seo.title,
+
     description: siteData.seo.description,
+
     url: siteData.url,
+
     siteName: siteData.name,
+
     locale: "en_IN",
+
     type: "website",
 
     images: [
       {
         url: absoluteUrl("/images/kiyorathaispa.png"),
+
         width: 1200,
+
         height: 630,
-        alt: `${siteData.name} spa and massage center in Agra`,
+
+        alt: `${siteData.name} - Spa and Massage Center in Agra`,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
+
     title: siteData.seo.title,
+
     description: siteData.seo.description,
+
     images: [absoluteUrl("/images/kiyorathaispa.png")],
   },
 };
+
+/* =========================================================
+   ROOT LAYOUT
+========================================================= */
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  /* =======================================================
+     VALID SOCIAL PROFILE LINKS
+  ======================================================= */
+
   const sameAs = Object.values(siteData.socials).filter(
-    (item) => item && item !== "#"
+    (item): item is string =>
+      typeof item === "string" &&
+      item.startsWith("http")
   );
+
+  /* =======================================================
+     LOCAL BUSINESS SCHEMA
+  ======================================================= */
 
   const healthBusinessSchema = {
     "@context": "https://schema.org",
+
     "@type": "HealthAndBeautyBusiness",
 
     "@id": `${siteData.url}/#business`,
 
     name: siteData.name,
 
-    alternateName: "Kiyora Spa Agra",
+    alternateName: [
+      "Kiyora Spa Agra",
+      "Kiyora Thai Spa Agra",
+    ],
 
     description: siteData.seo.description,
 
@@ -98,15 +156,23 @@ export default function RootLayout({
 
     slogan: siteData.tagline,
 
-    image: absoluteUrl("/images/kiyorathaispa.png"),
+    image: [
+      absoluteUrl("/images/kiyorathaispa.png"),
+      absoluteUrl("/images/smallhero.png"),
+    ],
 
     logo: absoluteUrl("/favicon.png"),
 
     priceRange: "₹₹",
 
-    paymentAccepted: "Cash, UPI, Card",
-
     currenciesAccepted: "INR",
+
+    paymentAccepted: [
+      "Cash",
+      "UPI",
+      "Credit Card",
+      "Debit Card",
+    ],
 
     address: {
       "@type": "PostalAddress",
@@ -119,18 +185,57 @@ export default function RootLayout({
 
       postalCode: siteData.pincode,
 
-      addressCountry: "IN",
+      addressCountry: {
+        "@type": "Country",
+        name: "India",
+      },
     },
 
     areaServed: [
-      siteData.city,
-      siteData.area,
-      "Fatehabad Road",
-      "Tajganj",
-      "Agra Cantonment",
-      "Sadar Bazaar",
-      "Sanjay Place",
-      "Civil Lines",
+      {
+        "@type": "City",
+        name: "Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Siddharth Nagar, Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Fatehabad Road, Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Tajganj, Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Taj Mahal, Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Agra Cantonment",
+      },
+
+      {
+        "@type": "Place",
+        name: "Sadar Bazaar, Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Sanjay Place, Agra",
+      },
+
+      {
+        "@type": "Place",
+        name: "Civil Lines, Agra",
+      },
     ],
 
     openingHoursSpecification: [
@@ -148,25 +253,39 @@ export default function RootLayout({
         ],
 
         opens: "10:00",
+
         closes: "22:00",
       },
     ],
 
     knowsAbout: coreServiceKeywords,
 
-    makesOffer: coreServiceKeywords.map((service) => ({
-      "@type": "Offer",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
 
-      itemOffered: {
-        "@type": "Service",
+      name: "Spa & Massage Services in Agra",
 
-        name: service,
+      itemListElement: coreServiceKeywords.map((service) => ({
+        "@type": "Offer",
 
-        serviceType: service,
+        itemOffered: {
+          "@type": "Service",
 
-        areaServed: siteData.city,
-      },
-    })),
+          name: service,
+
+          serviceType: service,
+
+          provider: {
+            "@id": `${siteData.url}/#business`,
+          },
+
+          areaServed: {
+            "@type": "City",
+            name: siteData.city,
+          },
+        },
+      })),
+    },
 
     ...(sameAs.length > 0
       ? {
@@ -174,6 +293,10 @@ export default function RootLayout({
         }
       : {}),
   };
+
+  /* =======================================================
+     WEBSITE SCHEMA
+  ======================================================= */
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -184,6 +307,8 @@ export default function RootLayout({
 
     name: siteData.name,
 
+    alternateName: "Kiyora Thai Spa Agra",
+
     url: siteData.url,
 
     description: siteData.seo.description,
@@ -191,18 +316,69 @@ export default function RootLayout({
     inLanguage: "en-IN",
 
     publisher: {
-      "@type": "Organization",
-
-      name: siteData.name,
-
-      url: siteData.url,
+      "@id": `${siteData.url}/#business`,
     },
+  };
+
+  /* =======================================================
+     ORGANIZATION / BRAND SCHEMA
+  ======================================================= */
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+
+    "@type": "Organization",
+
+    "@id": `${siteData.url}/#organization`,
+
+    name: siteData.name,
+
+    url: siteData.url,
+
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("/favicon.png"),
+    },
+
+    email: siteData.email,
+
+    telephone: siteData.phone,
+
+    address: {
+      "@type": "PostalAddress",
+
+      streetAddress: siteData.address,
+
+      addressLocality: siteData.city,
+
+      addressRegion: siteData.state,
+
+      postalCode: siteData.pincode,
+
+      addressCountry: "IN",
+    },
+
+    ...(sameAs.length > 0
+      ? {
+          sameAs,
+        }
+      : {}),
   };
 
   return (
     <html lang="en-IN">
       <body>
-        {/* Business Schema */}
+
+
+
+
+        {/* =================================================
+            STRUCTURED DATA
+        ================================================= */}
+
+
+
+        {/* Local Business */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -210,7 +386,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Website Schema */}
+        {/* Website */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -218,22 +394,46 @@ export default function RootLayout({
           }}
         />
 
-        {/* Header */}
+        {/* Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd(organizationSchema),
+          }}
+        />
+
+   {/* Google Ads Tag */}
+  <Script
+    src="https://www.googletagmanager.com/gtag/js?id=AW-18379813823"
+    strategy="afterInteractive"
+  />
+
+  <Script id="google-ads-tag" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18379813823');
+    `}
+  </Script>
+
+        {/* =================================================
+            WEBSITE UI
+        ================================================= */}
+
         <Header />
 
-        {/* Page Content */}
-        {children}
+        <main>
+          {children}
+        </main>
 
-        {/* Bottom CTA */}
         <BottomCTA />
 
-        {/* Footer */}
         <Footer />
 
-        {/* Floating Call / WhatsApp */}
         <FloatingButton />
 
-        {/* 25% Offer Popup */}
         <Popup />
       </body>
     </html>
