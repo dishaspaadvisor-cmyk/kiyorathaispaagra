@@ -1,91 +1,86 @@
-import { Phone, MessageCircle, MapPin, Star } from "lucide-react";
+import {
+  FaPhone,
+  FaWhatsapp,
+  FaLocationDot,
+  FaStar,
+} from "react-icons/fa6";
 import { siteData } from "@/data/site";
 
 export default function Hero() {
-    return (
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage:
-                        "url('/images/kiyorathaispa.png')",
-                }}
-            />
+  return (
+    <section className="relative min-h-[88svh] overflow-hidden bg-black">
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/kiyorathaispa.png"
+        aria-hidden="true"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
 
-            {/* Dark Luxury Overlay */}
-            <div className="absolute inset-0 bg-black/70" />
-            <div className="absolute inset-0" />
+      {/* Light Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-black/5" />
 
-            {/* Content */}
-            <div className="relative z-10 container mx-auto px-4 py-24">
-                <div className="max-w-3xl">
-                    {/* Rating */}
-                    <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-black/50 px-4 py-2 text-sm text-yellow-400">
-                        <Star size={16} fill="currentColor" />
-                        Luxury Spa & Massage center in Agra
-                    </div>
+      {/* Bottom Soft Gradient */}
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/35 to-transparent" />
 
-                    <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
-                        Best Spa  in Siddharth Nagar, Agra
-                    </h1>
+      {/* Content */}
+      <div className="container relative z-10 mx-auto flex min-h-[88svh] items-center px-4 py-24">
+        <div className="max-w-2xl">
+          {/* Small Label */}
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md sm:text-sm">
+            <FaStar className="text-yellow-400" />
+            Premium Spa & Massage in Agra
+          </div>
 
-                    <p className="mb-6 max-w-2xl text-base leading-8 text-gray-200 md:text-xl">
-                        Expert Therapists , private rooom and hygenic spa services.
-                        full body massage, Thai massage, Swedish massage, deep tissue
-                        therapy, hot oil massage, Jacuzzi massage, foot reflexology,
-                        peaceful ambience, hygienic rooms, and professional wellness care
-                        in Siddharth Nagar, Agra.
-                    </p>
+          {/* Heading */}
+          <h1 className="max-w-2xl text-4xl font-bold leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            Relax. Refresh.
+            <span className="block text-yellow-400">Feel Your Best.</span>
+          </h1>
 
-                    {/* Location */}
-                    <div className="mb-8 flex items-start gap-3 text-gray-300">
-                        <MapPin className="mt-1 text-yellow-500" size={22} />
-                        <p>
-                            Shop No. 201, 2nd Floor, Ramesh Plaza, Fatehabad Road,
-                            Siddharth Nagar, Agra, Uttar Pradesh 282001
-                        </p>
-                    </div>
+          {/* Short Description */}
+          <p className="mt-5 max-w-xl text-base leading-7 text-white/85 md:text-lg">
+            Premium massage therapies, private rooms and a peaceful spa
+            experience at {siteData.name}.
+          </p>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col gap-3 sm:flex-row sm:justify-start max-w-md">
-                        <a
-                            href={siteData.callLink}
-                            className="inline-flex items-center justify-center gap-2 rounded-full bg-yellow-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-yellow-400 sm:w-auto"
-                        >
-                            <Phone size={16} />
-                            Call Now
-                        </a>
+          {/* Location */}
+          <div className="mt-5 flex max-w-xl items-start gap-2 text-sm text-white/80">
+            <FaLocationDot className="mt-1 shrink-0 text-yellow-400" />
 
-                        <a
-                            href={siteData.whatsappLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 rounded-full border border-yellow-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-yellow-500 hover:text-black sm:w-auto"
-                        >
-                            <MessageCircle size={16} />
-                            WhatsApp
-                        </a>
-                    </div>
+            <span>
+              Siddharth Nagar, Fatehabad Road, Agra
+            </span>
+          </div>
 
-                    {/* Trust Cards */}
-                    <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-                        {[
-                            "Private Rooms",
-                            "Expert Therapists",
-                            "Hygienic Spa",
-                            "Premium Ambience",
-                        ].map((item) => (
-                            <div
-                                key={item}
-                                className="rounded-2xl border border-yellow-500/20 bg-white/10 p-4 text-center backdrop-blur-md"
-                            >
-                                <p className="text-sm font-medium text-white">{item}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+          {/* CTA */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={siteData.callLink}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-yellow-400 px-6 text-sm font-bold text-gray-950 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-300"
+            >
+              <FaPhone size={14} />
+              Call Now
+            </a>
+
+            <a
+              href={siteData.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-gray-950"
+            >
+              <FaWhatsapp size={17} />
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -2,11 +2,13 @@ import Hero from "@/components/Hero";
 import ServiceCard from "@/components/servicecard";
 import BlogCard from "@/components/BlogCard";
 import { services } from "@/data/service";
+import { galleryImages } from "@/data/gallery";
 import { blogs } from "@/data/blog";
 import { siteData } from "@/data/site";
 import { pageMetadata } from "@/data/seo";
 import Link from "next/link";
 import { Sparkles, ShieldCheck, Heart, Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 
 export const metadata = pageMetadata({
@@ -62,12 +64,14 @@ const reviews = [
     id: 1,
     name: "Amit Sharma",
     rating: 5,
+    g_icons: "/images/greview.png",
     review:
       "Very clean and peaceful spa. The ambience is premium and the massage service was relaxing. Great place in Agra for wellness.",
   },
   {
     id: 2,
     name: "Rahul Verma",
+    g_icons: "/images/greview.png",
     rating: 5,
     review:
       "Excellent Thai massage experience. Rooms are hygienic, staff is professional, and the environment feels luxurious.",
@@ -75,6 +79,7 @@ const reviews = [
   {
     id: 3,
     name: "Priya Singh",
+    g_icons: "/images/greview.png",
     rating: 5,
     review:
       "Beautiful spa room, calm music, and very comfortable experience. Perfect place to relax after a busy day.",
@@ -82,6 +87,7 @@ const reviews = [
   {
     id: 4,
     name: "Sandeep Gupta",
+    g_icons: "/images/greview.png",
     rating: 4,
     review:
       "Good service and nice ambience. The location near Fatehabad Road is also convenient.",
@@ -89,6 +95,7 @@ const reviews = [
   {
     id: 5,
     name: "Neha Agarwal",
+    g_icons: "/images/greview.png",
     rating: 5,
     review:
       "One of the best spa experiences in Agra. Clean rooms, soft lighting, and relaxing massage therapy.",
@@ -129,26 +136,6 @@ export default function HomePage() {
     <main>
       <Hero />
 
-      {/* Local SEO Intro */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <span className="font-semibold uppercase tracking-widest text-yellow-600">
-            Kiyora Thai Spa Agra
-          </span>
-
-          <h1 className="mx-auto mt-4 max-w-4xl text-4xl font-bold text-gray-900 md:text-5xl">
-            Best Spa & Massage Center in Siddharth Nagar, Agra
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-4xl leading-8 text-gray-600">
-            Kiyora Thai Spa is a premium spa and massage center in Siddharth
-            Nagar, Agra, near Fatehabad Road, Tajganj and Agra Cantt. We offer
-            full body massage, Thai massage, Swedish massage, deep tissue
-            massage, hot oil massage, aromatherapy, Jacuzzi massage and foot
-            reflexology for complete relaxation and wellness.
-          </p>
-        </div>
-      </section>
 
       {/* Services */}
       <section className="bg-gray-50 py-20">
@@ -189,138 +176,187 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Local Areas */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <span className="font-semibold uppercase tracking-widest text-yellow-600">
-            Local Spa Near You
-          </span>
+      {/* Gallery Section */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          {/* Heading */}
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="inline-flex rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-yellow-700">
+              Our Gallery
+            </span>
 
-          <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
-            Spa Near Fatehabad Road, Tajganj & Agra Cantt
-          </h2>
+            <h2 className="mt-5 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+              Explore Our Spa Ambience
+            </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
-            Located in Siddharth Nagar, Kiyora Thai Spa serves customers from
-            Fatehabad Road, Tajganj, Agra Cantt, Sadar Bazaar, Sanjay Place,
-            Civil Lines and nearby areas around the Taj Mahal.
-          </p>
+            <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
+              Take a look at our relaxing interiors, premium treatment rooms and
+              peaceful wellness spaces.
+            </p>
+          </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {localAreas.map((area) => (
-              <span
-                key={area}
-                className="rounded-full border border-yellow-300 bg-yellow-50 px-5 py-3 text-sm font-semibold text-gray-800"
+          {/* Gallery Grid */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryImages.map((item) => (
+              <div
+                key={item.id}
+                className="group relative h-[300px] overflow-hidden rounded-[26px] border border-gray-100 bg-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.07)] sm:h-[340px] lg:h-[380px]"
               >
-                {area}
-              </span>
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+
+                {/* Only bottom gradient - image stays visible */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                {/* Title */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                  <h3 className="text-lg font-bold text-white sm:text-xl">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Local Areas */}
+      <section className="relative overflow-hidden bg-[#fcfaf5] py-20 md:py-28">
+        {/* Decorative Background */}
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-yellow-200/30 blur-3xl" />
+        <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-yellow-100/50 blur-3xl" />
+
+        <div className="container relative z-10 mx-auto px-4">
+          <div className="mx-auto max-w-5xl rounded-[32px] border border-yellow-100 bg-white/90 px-6 py-12 text-center shadow-[0_20px_70px_rgba(0,0,0,0.07)] backdrop-blur-sm sm:px-10 md:py-16">
+
+            {/* Small Heading */}
+            <span className="inline-flex items-center rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-yellow-700">
+              Local Spa Near You
+            </span>
+
+            {/* Heading */}
+            <h2 className="mx-auto mt-5 max-w-4xl text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+              Spa Near Fatehabad Road, Tajganj & Agra Cantt
+            </h2>
+
+            {/* Description */}
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
+              Located in Siddharth Nagar, Kiyora Thai Spa serves customers from
+              Fatehabad Road, Tajganj, Agra Cantt, Sadar Bazaar, Sanjay Place,
+              Civil Lines and nearby areas around the Taj Mahal.
+            </p>
+
+            {/* Areas */}
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              {localAreas.map((area) => (
+                <span
+                  key={area}
+                  className="group flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:bg-yellow-50 hover:text-yellow-800 hover:shadow-md"
+                >
+                  <span className="h-2 w-2 rounded-full bg-yellow-500 transition-transform duration-300 group-hover:scale-125" />
+                  {area}
+                </span>
+              ))}
+            </div>
+
+            {/* Bottom Highlight */}
+            <div className="mx-auto mt-10 h-1 w-20 rounded-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600" />
+          </div>
+        </div>
+      </section>
+
       {/* Reviews */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <span className="font-semibold uppercase tracking-widest text-yellow-600">
+      {/* Reviews */}
+      <section className="bg-[#faf8f3] py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <span className="inline-flex rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-yellow-700">
               Customer Reviews
             </span>
 
-            <h2 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
               Trusted Spa Experience in Agra
             </h2>
 
-            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
-              Our customers choose Kiyora Thai Spa for relaxing massage,
-              hygienic rooms, peaceful ambience and professional spa services in
-              Siddharth Nagar, Agra.
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
+              Our customers choose Kiyora Thai Spa for relaxing massage, hygienic
+              rooms, peaceful ambience and professional spa services in Siddharth
+              Nagar, Agra.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Review Grid */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {reviews.map((item) => (
               <article
                 key={item.id}
-                className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
+                className="group relative overflow-hidden rounded-[28px] border border-gray-100 bg-white p-6 shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] sm:p-8"
               >
-                <Quote className="text-yellow-500" size={42} />
+                {/* Top */}
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-gray-400">
+                      Google Review
+                    </p>
 
-                <div className="mt-5 flex gap-1 text-yellow-500">
-                  {Array.from({ length: item.rating }).map((_, index) => (
-                    <Star key={index} size={18} fill="currentColor" />
-                  ))}
+                    <div className="mt-3 flex gap-1 text-yellow-500">
+                      {Array.from({ length: item.rating }).map((_, index) => (
+                        <Star key={index} size={18} fill="currentColor" />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Google Icon */}
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-gray-100 bg-white p-2 shadow-sm">
+                    <Image
+                      src={item.g_icons}
+                      alt="Google review"
+                      fill
+                      sizes="44px"
+                      className="object-contain p-2"
+                    />
+                  </div>
                 </div>
 
-                <p className="mt-5 leading-8 text-gray-600">
-                  &quot;{item.review}&quot;
+                {/* Review */}
+                <p className="mt-6 min-h-[120px] text-[15px] leading-7 text-gray-600">
+                  &ldquo;{item.review}&rdquo;
                 </p>
 
-                <h3 className="mt-6 text-lg font-bold text-gray-900">
-                  {item.name}
-                </h3>
+                {/* Divider */}
+                <div className="my-6 h-px bg-gray-100" />
+
+                {/* Customer */}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 text-lg font-bold text-white shadow-sm">
+                    {item.name?.charAt(0).toUpperCase()}
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-gray-900">{item.name}</h3>
+
+                    <p className="mt-1 text-xs font-medium text-gray-400">
+                      Verified Customer
+                    </p>
+                  </div>
+                </div>
+
+                {/* Decorative line */}
+                <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-yellow-400 to-yellow-600 transition-all duration-500 group-hover:w-full" />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose */}
-      <section className="bg-black py-20 text-white">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <span className="font-semibold uppercase tracking-widest text-yellow-500">
-              Why Choose Us
-            </span>
 
-            <h2 className="mt-4 text-4xl font-bold md:text-5xl">
-              Premium Wellness Experience in Agra
-            </h2>
 
-            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-400">
-              Choose {siteData.name} for luxury ambience, hygienic spa rooms,
-              trained therapists and relaxing massage therapies in Siddharth
-              Nagar, Agra.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Sparkles,
-                title: "Luxury Ambience",
-                text: "Peaceful interiors for a relaxing spa experience in Agra.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Hygienic Rooms",
-                text: "Clean, private and comfortable treatment rooms.",
-              },
-              {
-                icon: Heart,
-                title: "Expert Therapists",
-                text: "Professional wellness care with trained therapists.",
-              },
-              {
-                icon: Star,
-                title: "Premium Service",
-                text: "A luxury spa experience designed for relaxation.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-yellow-500/20 bg-white/5 p-8 text-center"
-              >
-                <item.icon className="mx-auto text-yellow-500" size={42} />
-
-                <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
-
-                <p className="mt-3 text-gray-400">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Blogs */}
       <section className="bg-gray-50 py-20">
@@ -357,7 +393,68 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* Why Choose */}
+      <section className="bg-[#fffdf8] py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <div className="mb-14 text-center">
+            <span className="inline-flex rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-yellow-700">
+              Why Choose Us
+            </span>
 
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+              Premium Wellness Experience in Agra
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
+              Choose {siteData.name} for luxury ambience, hygienic spa rooms,
+              trained therapists and relaxing massage therapies in Siddharth
+              Nagar, Agra.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Sparkles,
+                title: "Luxury Ambience",
+                text: "Peaceful interiors for a relaxing spa experience in Agra.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Hygienic Rooms",
+                text: "Clean, private and comfortable treatment rooms.",
+              },
+              {
+                icon: Heart,
+                title: "Expert Therapists",
+                text: "Professional wellness care with trained therapists.",
+              },
+              {
+                icon: Star,
+                title: "Premium Service",
+                text: "A luxury spa experience designed for relaxation.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group rounded-[28px] border border-yellow-100 bg-white p-7 text-center shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-yellow-200 hover:shadow-[0_20px_45px_rgba(0,0,0,0.10)]"
+              >
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-50 text-yellow-600 transition duration-300 group-hover:bg-yellow-500 group-hover:text-white">
+                  <item.icon size={30} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-gray-900">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-gray-600">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* FAQ */}
       <section className="bg-white py-20">
         <div className="container mx-auto px-4">

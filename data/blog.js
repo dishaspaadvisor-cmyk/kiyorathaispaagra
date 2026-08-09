@@ -5,106 +5,127 @@ export const blogs = [
     slug: "best-full-body-massage-in-agra",
     date: "2026-06-12",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/full-body-massage.webp",
+    image: "/images/services/full-body-massage.png",
     excerpt:
-      "Full body massage helps reduce stress, relax muscles, improve blood circulation, and refresh your body.",
+      "Discover how full body massage can help relax tired muscles, reduce stress, and refresh your body.",
     content:
-      "If you are looking for a relaxing full body massage in Agra, Kiyora Thai Spa offers a premium wellness experience in Siddharth Nagar. Our full body massage is designed to reduce stress, relax tired muscles, improve blood circulation, and refresh your body. For online booking, visit https://spaadvisor.in.",
+      "If you are looking for a relaxing full body massage in Agra, Kiyora Thai Spa offers a premium wellness experience in Siddharth Nagar. Full body massage is designed to relax tired muscles, reduce everyday stress, and support overall body comfort. Our peaceful spa ambience and professional care make it a suitable choice for guests looking to unwind near Fatehabad Road, Tajganj, and Agra Cantt.",
   },
+
   {
     id: 2,
-    title: "Female to Male Massage in Agra with Professional Spa Care",
-    slug: "female-to-male-massage-in-agra",
-    date: "2026-06-12",
+    title: "Four Hand Massage in Agra for a Premium Spa Experience",
+    slug: "four-hand-massage-in-agra",
+    date: "2026-06-14",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/female-to-male-massage.webp",
+    image: "/images/services/four-hand-massage.png",
     excerpt:
-      "Professional massage therapy in a clean, peaceful, and comfortable spa environment.",
+      "Four hand massage is performed by two therapists working together for a synchronized relaxation experience.",
     content:
-      "Kiyora Thai Spa provides professional female to male massage services in Agra with proper hygiene, relaxing ambience, and trained therapists. Our spa environment is designed for comfort, privacy, and complete relaxation. Book your appointment online at https://spaadvisor.in.",
+      "Four hand massage is a premium spa therapy in which two therapists work together using synchronized massage techniques. At Kiyora Thai Spa in Agra, this service is designed for guests who want deeper relaxation and a distinctive wellness experience. The peaceful environment and coordinated therapy can help you feel refreshed after a busy day.",
   },
+
   {
     id: 3,
-    title: "Four Hand Massage in Agra for Luxury Relaxation",
-    slug: "four-hand-massage-in-agra",
-    date: "2026-06-12",
+    title: "Deep Tissue Massage in Agra for Muscle Tension and Stiffness",
+    slug: "deep-tissue-massage-in-agra",
+    date: "2026-06-16",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/four-hand-massage.webp",
+    image: "/images/services/deep-tissue-massage.png",
     excerpt:
-      "A luxury spa therapy performed by two therapists for deeper relaxation and comfort.",
+      "Deep tissue massage focuses on deeper muscle areas and is suitable for stiffness, tension, and tired muscles.",
     content:
-      "Four hand massage is a premium spa therapy where two therapists work together to create a deeply relaxing experience. At Kiyora Thai Spa in Agra, this service is perfect for guests who want luxury, comfort, and complete body relaxation. Online booking is available at https://spaadvisor.in.",
+      "Deep tissue massage uses focused pressure and massage techniques on deeper muscle areas. It is commonly preferred by people who experience muscle stiffness, body tension, or tiredness after work or travel. Kiyora Thai Spa offers deep tissue massage in Siddharth Nagar, Agra, in a clean and relaxing spa environment.",
   },
+
   {
     id: 4,
-    title: "Thai Massage in Agra at Kiyora Thai Spa",
-    slug: "thai-massage-in-agra",
-    date: "2026-06-12",
+    title: "Swedish Massage in Agra for Gentle Body Relaxation",
+    slug: "swedish-massage-in-agra",
+    date: "2026-06-18",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/thai-massage.jpg",
+    image: "/images/services/swedish-massage.png",
     excerpt:
-      "Thai massage improves flexibility, relieves body stiffness, and supports overall wellness.",
+      "Swedish massage uses gentle flowing movements to support relaxation and overall body comfort.",
     content:
-      "Thai massage is one of the most popular wellness therapies for body relaxation and flexibility. Kiyora Thai Spa offers Thai massage in Siddharth Nagar, Agra with a peaceful ambience and professional care. Book your Thai massage online through https://spaadvisor.in.",
+      "Swedish massage is a popular choice for guests who prefer a gentle and soothing wellness experience. The therapy generally uses smooth and flowing massage movements that help the body relax. At Kiyora Thai Spa in Agra, Swedish massage is available in a peaceful setting designed for comfort and relaxation.",
   },
+
   {
     id: 5,
-    title: "Deep Tissue Massage in Agra for Muscle Pain Relief",
-    slug: "deep-tissue-massage-in-agra",
-    date: "2026-06-12",
+    title: "Balinese Massage in Agra for Deep Relaxation",
+    slug: "balinese-massage-in-agra",
+    date: "2026-06-20",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/deep-tissue-massage.jpeg",
+    image: "/images/services/balinese-massage.png",
     excerpt:
-      "Deep tissue massage targets muscle tension, stiffness, body pain, and stress.",
+      "Balinese massage combines relaxing massage techniques for a calming and refreshing wellness experience.",
     content:
-      "Deep tissue massage is ideal for people dealing with muscle stiffness, tiredness, and body tension. At Kiyora Thai Spa in Agra, our deep tissue massage helps relax deeper muscle layers and supports better comfort. For online spa booking, visit https://spaadvisor.in.",
+      "Balinese massage is known for its relaxing combination of smooth massage movements and focused pressure. It can be a good option for guests looking to release everyday tension and enjoy a calm spa experience. Kiyora Thai Spa offers Balinese massage in Agra near Fatehabad Road and Tajganj.",
   },
+
   {
     id: 6,
-    title: "Hot Oil Massage in Agra for Stress Relief",
-    slug: "hot-oil-massage-in-agra",
-    date: "2026-06-12",
+    title: "Full Body Oil Massage in Agra for Relaxation and Comfort",
+    slug: "full-body-oil-massage-in-agra",
+    date: "2026-06-22",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/hot-oil-massage.jpg",
+    image: "/images/services/full-body-oil-massage.png",
     excerpt:
-      "Warm oil massage helps relax the body, nourish the skin, and calm the mind.",
+      "Full body oil massage combines relaxing massage movements with massage oil for a smooth and soothing experience.",
     content:
-      "Hot oil massage is a soothing spa therapy using warm oils to relax muscles and reduce stress. Kiyora Thai Spa offers premium hot oil massage in Agra for guests who want comfort, freshness, and relaxation. Book online at https://spaadvisor.in.",
+      "Full body oil massage is a relaxing wellness therapy that uses massage oils together with smooth massage movements. It is suitable for guests looking to relax after work, travel, or a busy routine. Kiyora Thai Spa provides full body oil massage in Siddharth Nagar, Agra, in a clean and comfortable spa environment.",
   },
+
   {
     id: 7,
-    title: "Swedish Massage in Agra for Gentle Relaxation",
-    slug: "swedish-massage-in-agra",
-    date: "2026-06-12",
+    title: "Full Body Thai Massage in Agra for Flexibility and Relaxation",
+    slug: "full-body-thai-massage-in-agra",
+    date: "2026-06-24",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/swedish-massage.jpg",
+    image: "/images/services/full-body-thai-massage.png",
     excerpt:
-      "Swedish massage is a gentle full-body therapy for relaxation and improved circulation.",
+      "Full body Thai massage uses traditional techniques designed to support flexibility and overall relaxation.",
     content:
-      "Swedish massage is perfect for guests who prefer a gentle and relaxing therapy. At Kiyora Thai Spa in Agra, Swedish massage helps reduce stress, refresh the body, and improve relaxation. Online booking is available through https://spaadvisor.in.",
+      "Full body Thai massage combines traditional Thai-inspired techniques that focus on body movement, stretching, and relaxation. It is a popular wellness option for guests who want to feel refreshed and comfortable. Kiyora Thai Spa offers full body Thai massage in Agra near Fatehabad Road, Tajganj, and Agra Cantt.",
   },
+
   {
     id: 8,
-    title: "Jacuzzi Massage in Agra for a Premium Spa Experience",
-    slug: "jacuzzi-massage-in-agra",
-    date: "2026-06-12",
+    title: "Foot Reflexology in Agra for Tired Feet and Relaxation",
+    slug: "foot-reflexology-in-agra",
+    date: "2026-06-26",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/jacuzzi-massage.jpg",
+    image: "/images/services/foot-reflexology.png",
     excerpt:
-      "Jacuzzi massage combines warm water relaxation with a luxury spa experience.",
+      "Foot reflexology focuses on pressure areas of the feet and is ideal after travel, shopping, or long working hours.",
     content:
-      "Jacuzzi massage is a premium wellness experience that combines warm water relaxation with spa comfort. Kiyora Thai Spa offers Jacuzzi massage in Agra for customers looking for a luxury and refreshing experience. Book your spa session online at https://spaadvisor.in.",
+      "Foot reflexology is a focused wellness therapy that uses pressure techniques on different areas of the feet. It can be especially relaxing after long working hours, sightseeing, shopping, or travel. Kiyora Thai Spa offers foot reflexology in Agra in a peaceful spa environment.",
   },
+
   {
     id: 9,
-    title: "Foot Reflexology in Agra for Relaxation and Wellness",
-    slug: "foot-reflexology-in-agra",
-    date: "2026-06-12",
+    title: "Lomi-Lomi Massage in Agra for Flowing Relaxation",
+    slug: "lomi-lomi-massage-in-agra",
+    date: "2026-06-28",
     author: "Kiyora Thai Spa",
-    image: "/images/blog/foot-reflexology.jpg",
+    image: "/images/services/lomi-lomi-massage.png",
     excerpt:
-      "Foot reflexology uses pressure points to relax the body, improve comfort, and reduce tiredness.",
+      "Lomi-Lomi massage uses smooth flowing movements designed to create a calm and deeply relaxing experience.",
     content:
-      "Foot reflexology is a relaxing therapy focused on pressure points of the feet. At Kiyora Thai Spa in Agra, foot reflexology helps reduce tiredness and supports overall relaxation. For online appointment booking, visit https://spaadvisor.in.",
+      "Lomi-Lomi massage is known for its smooth and flowing massage movements. The continuous style of massage can create a calming and relaxing wellness experience. At Kiyora Thai Spa in Agra, guests can enjoy Lomi-Lomi massage in a comfortable and peaceful spa setting.",
+  },
+
+  {
+    id: 10,
+    title: "Jacuzzi Spa Experience in Agra for Premium Relaxation",
+    slug: "jacuzzi-spa-experience-in-agra",
+    date: "2026-06-30",
+    author: "Kiyora Thai Spa",
+    image: "/images/services/jacuzzi-massage.png",
+    excerpt:
+      "A Jacuzzi spa experience combines warm water relaxation with a comfortable premium wellness setting.",
+    content:
+      "A Jacuzzi spa experience is a relaxing option for guests looking for warm water comfort together with a premium wellness environment. Kiyora Thai Spa offers Jacuzzi-based spa experiences in Agra for customers who want additional relaxation after their wellness session. Our spa is located in Siddharth Nagar near Fatehabad Road and Tajganj.",
   },
 ];

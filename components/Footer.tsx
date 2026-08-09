@@ -1,74 +1,83 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, Globe, ImageIcon, Play } from "lucide-react";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaLocationDot,
+  FaClock,
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaArrowUpRightFromSquare,
+} from "react-icons/fa6";
+
 import { siteData } from "@/data/site";
 import { services } from "@/data/service";
-import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
-      {/* CTA */}
-      <section className="border-b border-yellow-500/20 bg-gradient-to-r from-yellow-600 to-yellow-400 px-4 py-10 text-black">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-5 text-center md:flex-row md:text-left">
-          <div>
-            <h2 className="text-3xl font-bold">Book Your Luxury Spa Session</h2>
-            <p className="mt-2 text-black/80">
-              Relax, refresh, and rejuvenate at {siteData.name}.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <a
-              href={siteData.callLink}
-              className="rounded-full bg-black px-6 py-3 font-semibold text-white hover:bg-gray-900"
-            >
-              Call Now
-            </a>
-
-            <a
-              href={siteData.bookingLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-black px-6 py-3 font-semibold text-black hover:bg-black hover:text-white"
-            >
-              Book Online
-            </a>
-          </div>
-        </div>
-      </section>
-
+    <footer className="border-t border-yellow-100 bg-[#fffdf8]">
       {/* Main Footer */}
-      <section className="py-14">
-        <div className="container mx-auto grid gap-10 px-4 md:grid-cols-2 lg:grid-cols-4">
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto grid gap-10 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {/* Brand */}
           <div>
-           <Image className="mb-4 object-contain" src="/logo.png" alt={`${siteData.name} logo`} width={220} height={70} />
-            <p className="mt-4 leading-7 text-gray-400">
-              Premium Thai spa and wellness experience in {siteData.area},{" "}
-              {siteData.city}. Enjoy luxury massage therapies, peaceful ambience,
-              and professional care.
+            <Link href="/" className="inline-block">
+              <h3 className="text-2xl font-bold text-gray-900">
+                Kiyora Thai Spa
+              </h3>
+
+              <p className="mt-1 text-xs font-bold uppercase tracking-[0.25em] text-yellow-600">
+                Agra
+              </p>
+            </Link>
+
+            <p className="mt-5 max-w-sm text-sm leading-7 text-gray-600">
+              Best no 1 Thai spa and wellness experience in {siteData.area},{" "}
+              {siteData.city}. Enjoy luxury massage therapies, peaceful
+              ambience and professional care.
             </p>
 
+            {/* Social Icons */}
             <div className="mt-6 flex gap-3">
-              <a href={siteData.socials.facebook} className="rounded-full bg-white/10 p-3 hover:bg-yellow-500 hover:text-black" aria-label="Facebook">
-                <Globe size={18} />
+              <a
+                href={siteData.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
+              >
+                <FaFacebookF size={17} />
               </a>
-              <a href={siteData.socials.instagram} className="rounded-full bg-white/10 p-3 hover:bg-yellow-500 hover:text-black" aria-label="Instagram">
-                <ImageIcon size={18} />
+
+              <a
+                href={siteData.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
+              >
+                <FaInstagram size={18} />
               </a>
-              <a href={siteData.socials.youtube} className="rounded-full bg-white/10 p-3 hover:bg-yellow-500 hover:text-black" aria-label="YouTube">
-                <Play size={18} />
+
+              <a
+                href={siteData.socials.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
+              >
+                <FaYoutube size={19} />
               </a>
             </div>
           </div>
 
-          {/* Pages */}
+          {/* Quick Links */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-yellow-500">
+            <h4 className="mb-5 text-lg font-bold text-gray-900">
               Quick Links
             </h4>
 
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3">
               {[
                 ["Home", "/"],
                 ["About Us", "/about"],
@@ -79,8 +88,13 @@ export default function Footer() {
                 ["Contact", "/contact"],
               ].map(([name, href]) => (
                 <li key={name}>
-                  <Link href={href} className="hover:text-yellow-500">
+                  <Link
+                    href={href}
+                    className="group inline-flex items-center gap-2 text-sm font-medium text-gray-600 transition hover:text-yellow-700"
+                  >
                     {name}
+
+                    <FaArrowUpRightFromSquare className="text-[10px] opacity-0 transition-all duration-300 group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
@@ -89,18 +103,20 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-yellow-500">
+            <h4 className="mb-5 text-lg font-bold text-gray-900">
               Our Services
             </h4>
 
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3">
               {services.slice(0, 7).map((service) => (
                 <li key={service.id}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="hover:text-yellow-500"
+                    className="group inline-flex items-center gap-2 text-sm font-medium text-gray-600 transition hover:text-yellow-700"
                   >
                     {service.title}
+
+                    <FaArrowUpRightFromSquare className="text-[10px] opacity-0 transition-all duration-300 group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
@@ -109,33 +125,57 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-5 text-lg font-semibold text-yellow-500">
+            <h4 className="mb-5 text-lg font-bold text-gray-900">
               Contact Info
             </h4>
 
-            <ul className="space-y-4 text-gray-400">
+            <ul className="space-y-5">
               <li className="flex gap-3">
-                <MapPin className="mt-1 text-yellow-500" size={20} />
-                <span>{siteData.address}</span>
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yellow-50 text-yellow-700">
+                  <FaLocationDot size={16} />
+                </div>
+
+                <span className="pt-1 text-sm leading-6 text-gray-600">
+                  {siteData.address}
+                </span>
               </li>
 
               <li className="flex items-center gap-3">
-                <Phone className="text-yellow-500" size={20} />
-                <a href={siteData.callLink} className="hover:text-yellow-500">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yellow-50 text-yellow-700">
+                  <FaPhone size={15} />
+                </div>
+
+                <a
+                  href={siteData.callLink}
+                  className="text-sm font-medium text-gray-600 transition hover:text-yellow-700"
+                >
                   {siteData.phone}
                 </a>
               </li>
 
               <li className="flex items-center gap-3">
-                <Mail className="text-yellow-500" size={20} />
-                <a href={`mailto:${siteData.email}`} className="hover:text-yellow-500">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yellow-50 text-yellow-700">
+                  <FaEnvelope size={16} />
+                </div>
+
+                <a
+                  href={`mailto:${siteData.email}`}
+                  className="break-all text-sm font-medium text-gray-600 transition hover:text-yellow-700"
+                >
                   {siteData.email}
                 </a>
               </li>
 
               <li className="flex gap-3">
-                <Clock className="mt-1 text-yellow-500" size={20} />
-                <span>Monday - Sunday: 10:00 AM - 10:00 PM</span>
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yellow-50 text-yellow-700">
+                  <FaClock size={16} />
+                </div>
+
+                <span className="pt-1 text-sm leading-6 text-gray-600">
+                  Monday - Sunday
+                  <br />
+                  10:00 AM - 10:00 PM
+                </span>
               </li>
             </ul>
           </div>
@@ -143,17 +183,25 @@ export default function Footer() {
       </section>
 
       {/* Bottom */}
-      <section className="border-t border-white/10 py-5">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-3 px-4 text-center text-sm text-gray-500 md:flex-row">
+      <section className="border-t border-yellow-100 bg-white py-5">
+        <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 text-center text-sm text-gray-500 md:flex-row">
           <p>
-            &copy; {new Date().getFullYear()} {siteData.name}. All Rights Reserved.
+            &copy; {new Date().getFullYear()} {siteData.name}. All Rights
+            Reserved.
           </p>
 
-          <div className="flex gap-5">
-            <Link href="/privacy-policy" className="hover:text-yellow-500">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-yellow-700"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms-and-conditions" className="hover:text-yellow-500">
+
+            <Link
+              href="/terms-and-conditions"
+              className="transition hover:text-yellow-700"
+            >
               Terms & Conditions
             </Link>
           </div>

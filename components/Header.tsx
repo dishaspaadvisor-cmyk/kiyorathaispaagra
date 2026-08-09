@@ -1,10 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X, Phone, Calendar } from "lucide-react";
-import { siteData } from "@/data/site";
 import Image from "next/image";
+import { useState } from "react";
+import {
+  FaBars,
+  FaXmark,
+  FaPhone,
+  FaCalendarCheck,
+  FaWhatsapp,
+} from "react-icons/fa6";
+import { siteData } from "@/data/site";
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -19,22 +25,44 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-600/20">
+    <header className="sticky top-0 z-50 w-full border-b border-yellow-100 bg-white/95 shadow-sm backdrop-blur-xl">
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex min-h-[82px] items-center justify-between gap-6">
           {/* Logo */}
-          <Link href="/" className="flex flex-col">
-            
-            <Image src="/logo.png" alt={`${siteData.name} logo`} width={220} height={70} className="object-contain" />
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-3"
+            aria-label="Kiyora Thai Spa Agra"
+          >
+            <div className="relative h-14 w-14 overflow-hidden rounded-full border border-yellow-200 bg-white shadow-sm">
+              <Image
+                src="/logo.png"
+                alt="Kiyora Thai Spa Agra"
+                fill
+                priority
+                sizes="56px"
+                className="object-contain p-1"
+              />
+            </div>
+
+            <div className="leading-tight">
+              <p className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+                Kiyora Thai Spa
+              </p>
+
+              <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.28em] text-yellow-600">
+                Agra
+              </p>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-yellow-500 transition duration-300 font-medium"
+                className="relative py-2 text-sm font-semibold text-gray-700 transition-colors duration-300 hover:text-yellow-600"
               >
                 {item.name}
               </Link>
@@ -42,69 +70,103 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden items-center gap-2 lg:flex">
             <a
               href={siteData.callLink}
-              className="flex items-center gap-2 rounded-full border border-yellow-500 px-4 py-2 text-sm text-white hover:bg-yellow-500 hover:text-black transition"
+              aria-label="Call Kiyora Thai Spa"
+              className="flex h-11 items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-800 transition-all duration-300 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
             >
-              <Phone size={16} />
-              Call Now
+              <FaPhone size={15} />
+              Call
+            </a>
+
+            <a
+              href={siteData.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Kiyora Thai Spa"
+              className="flex h-11 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1fbd5a]"
+            >
+              <FaWhatsapp size={17} />
+              WhatsApp
             </a>
 
             <a
               href={siteData.bookingLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-yellow-500 px-5 py-2.5 text-sm font-semibold text-black hover:bg-yellow-400 transition"
+              aria-label="Book appointment"
+              className="flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 px-5 text-sm font-bold text-gray-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
-              <Calendar size={16} />
-              Book Appointment
+              <FaCalendarCheck size={16} />
+              Book Now
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Button */}
           <button
-            onClick={() => setMobileMenu(!mobileMenu)}
-            className="lg:hidden text-white"
+            type="button"
+            onClick={() => setMobileMenu((prev) => !prev)}
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-900 shadow-sm lg:hidden"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenu}
           >
-            {mobileMenu ? <X size={30} /> : <Menu size={30} />}
+            {mobileMenu ? (
+              <FaXmark size={24} />
+            ) : (
+              <FaBars size={22} />
+            )}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenu && (
-        <div className="lg:hidden bg-black border-t border-yellow-500/20">
-          <nav className="flex flex-col px-5 py-4">
-            {navLinks.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setMobileMenu(false)}
-                className="py-3 text-white border-b border-gray-800 hover:text-yellow-500"
-              >
-                {item.name}
-              </Link>
-            ))}
+        <div className="border-t border-gray-100 bg-white lg:hidden">
+          <div className="container mx-auto px-4 py-5">
+            <nav className="flex flex-col">
+              {navLinks.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenu(false)}
+                  className="border-b border-gray-100 py-3.5 text-[15px] font-semibold text-gray-800 transition hover:pl-2 hover:text-yellow-600"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
 
-            <div className="mt-5 flex flex-col gap-3">
+            <div className="mt-5 grid grid-cols-2 gap-3">
               <a
                 href={siteData.callLink}
-                className="rounded-lg border border-yellow-500 px-4 py-3 text-center text-white"
+                className="flex h-12 items-center justify-center gap-2 rounded-xl border border-yellow-300 bg-yellow-50 text-sm font-semibold text-gray-900"
               >
+                <FaPhone size={15} />
                 Call Now
               </a>
 
               <a
-                href={siteData.bookingLink}
+                href={siteData.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-yellow-500 px-4 py-3 text-center font-semibold text-black"
+                className="flex h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] text-sm font-semibold text-white"
               >
-                Book Appointment
+                <FaWhatsapp size={17} />
+                WhatsApp
               </a>
             </div>
-          </nav>
+
+            <a
+              href={siteData.bookingLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-yellow-500 text-sm font-bold text-gray-950"
+            >
+              <FaCalendarCheck size={16} />
+              Book Appointment
+            </a>
+          </div>
         </div>
       )}
     </header>

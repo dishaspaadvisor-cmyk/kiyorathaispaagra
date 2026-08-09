@@ -1,130 +1,182 @@
+import Image from "next/image";
 import { siteData } from "@/data/site";
 import { pageMetadata } from "@/data/seo";
+import ContactForm from "@/components/ContactForm";
+
 import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  MessageCircle,
-} from "lucide-react";
+  FaPhone,
+  FaEnvelope,
+  FaLocationDot,
+  FaClock,
+  FaWhatsapp,
+} from "react-icons/fa6";
 
 export const metadata = pageMetadata({
   title: `Contact ${siteData.name} - Spa Booking in ${siteData.city}`,
+
   description: `Contact ${siteData.name} in ${siteData.area}, ${siteData.city} for spa appointments, massage booking, Thai massage, full body massage, wellness therapies and online booking near Fatehabad Road.`,
+
   path: "/contact",
+
   image: "/images/smallhero.png",
+
   imageAlt: `Contact ${siteData.name} spa in Agra`,
-  extraKeywords: ["spa booking Agra", "book massage Agra", "spa contact Agra"],
+
+  extraKeywords: [
+    "spa booking Agra",
+    "book massage Agra",
+    "spa contact Agra",
+  ],
 });
 
 export default function ContactPage() {
   return (
-    <main>
+    <main className="overflow-hidden">
       {/* Hero */}
-      <section className="relative py-24 text-white" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative min-h-[420px] overflow-hidden">
+        <Image
+          src="/images/smallhero.png"
+          alt={`Contact ${siteData.name}`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-        {/* Dark Luxury Overlay */}
-        <div className="absolute inset-0 bg-black/80" />
-        <div className="absolute inset-0" />
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-black/5" />
 
-        <div className="container relative z-10 mx-auto px-4 text-center">
+        <div className="container relative z-10 mx-auto flex min-h-[420px] items-center px-4 py-20">
+          <div className="max-w-2xl">
+            <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+              Contact Us
+            </span>
 
+            <h1 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+              Book Your
+              <span className="block text-yellow-400">
+                Spa Experience
+              </span>
+            </h1>
 
-          <h1 className="mt-4 text-5xl font-bold md:text-6xl">
-            Contact Us
-          </h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/85 md:text-lg">
+              Call, WhatsApp or send us your enquiry to book your preferred
+              massage service in Agra.
+            </p>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg border-l-4 pl-4 leading-8 text-white">
-            Book your spa appointment, ask questions, or contact us for massage
-            and wellness services in {siteData.area}, {siteData.city}.
-          </p>
+            <div className="mt-5 flex items-center gap-2 text-sm text-white/80">
+              <FaLocationDot className="text-yellow-400" />
+              Siddharth Nagar, Fatehabad Road, Agra
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-[#fffaf2] py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid gap-10 lg:grid-cols-2">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
             {/* Contact Info */}
             <div>
-              <h2 className="mb-8 text-4xl font-bold text-gray-900">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-600">
+                Get In Touch
+              </span>
+
+              <h2 className="mt-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
                 Visit Our Spa in Agra
               </h2>
 
-              <div className="space-y-6">
-                <div className="flex gap-4 rounded-2xl bg-white p-6 shadow-lg">
-                  <MapPin className="text-yellow-500" size={28} />
+              <p className="mt-4 max-w-xl leading-7 text-gray-600">
+                Contact {siteData.name} for massage bookings, spa information
+                or appointment assistance.
+              </p>
+
+              {/* Contact Cards */}
+              <div className="mt-8 space-y-4">
+                {/* Address */}
+                <div className="flex gap-4 rounded-[22px] border border-yellow-100 bg-white p-5 shadow-[0_8px_25px_rgba(0,0,0,0.04)]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-yellow-50 text-yellow-600">
+                    <FaLocationDot size={18} />
+                  </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-bold text-gray-900">
                       Address
                     </h3>
 
-                    <p className="mt-2 text-gray-600">
+                    <p className="mt-2 text-sm leading-6 text-gray-600">
                       {siteData.address}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 rounded-2xl bg-white p-6 shadow-lg">
-                  <Phone className="text-yellow-500" size={28} />
+                {/* Phone */}
+                <div className="flex gap-4 rounded-[22px] border border-yellow-100 bg-white p-5 shadow-[0_8px_25px_rgba(0,0,0,0.04)]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-yellow-50 text-yellow-600">
+                    <FaPhone size={16} />
+                  </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-bold text-gray-900">
                       Phone
                     </h3>
 
                     <a
                       href={siteData.callLink}
-                      className="mt-2 block text-gray-600 hover:text-yellow-600"
+                      className="mt-2 block text-sm font-medium text-gray-600 transition hover:text-yellow-700"
                     >
                       {siteData.phone}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex gap-4 rounded-2xl bg-white p-6 shadow-lg">
-                  <Mail className="text-yellow-500" size={28} />
+                {/* Email */}
+                <div className="flex gap-4 rounded-[22px] border border-yellow-100 bg-white p-5 shadow-[0_8px_25px_rgba(0,0,0,0.04)]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-yellow-50 text-yellow-600">
+                    <FaEnvelope size={17} />
+                  </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-bold text-gray-900">
                       Email
                     </h3>
 
                     <a
                       href={`mailto:${siteData.email}`}
-                      className="mt-2 block text-gray-600 hover:text-yellow-600"
+                      className="mt-2 block break-all text-sm font-medium text-gray-600 transition hover:text-yellow-700"
                     >
                       {siteData.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex gap-4 rounded-2xl bg-white p-6 shadow-lg">
-                  <Clock className="text-yellow-500" size={28} />
+                {/* Hours */}
+                <div className="flex gap-4 rounded-[22px] border border-yellow-100 bg-white p-5 shadow-[0_8px_25px_rgba(0,0,0,0.04)]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-yellow-50 text-yellow-600">
+                    <FaClock size={17} />
+                  </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-bold text-gray-900">
                       Opening Hours
                     </h3>
 
-                    <p className="mt-2 text-gray-600">
+                    <p className="mt-2 text-sm leading-6 text-gray-600">
                       Monday - Sunday
-                    </p>
-
-                    <p className="text-gray-600">
+                      <br />
                       10:00 AM - 10:00 PM
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              {/* CTA */}
+              <div className="mt-7 grid grid-cols-2 gap-3">
                 <a
                   href={siteData.callLink}
-                  className="rounded-full bg-yellow-500 px-8 py-4 text-center font-semibold text-black hover:bg-yellow-400"
+                  className="flex h-12 items-center justify-center gap-2 rounded-full border border-yellow-300 bg-white text-sm font-bold text-gray-900 transition hover:bg-yellow-50"
                 >
+                  <FaPhone size={14} />
                   Call Now
                 </a>
 
@@ -132,100 +184,41 @@ export default function ContactPage() {
                   href={siteData.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-full border border-yellow-500 px-8 py-4 font-semibold text-gray-900 hover:bg-yellow-500 hover:text-black"
+                  className="flex h-12 items-center justify-center gap-2 rounded-full bg-[#25D366] text-sm font-bold text-white transition hover:bg-[#1fbd5a]"
                 >
-                  <svg
-                    xmlns="http://w3.org"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-green-500"
-                  >
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.966 0c3.178.001 6.169 1.24 8.413 3.488 2.245 2.248 3.481 5.239 3.48 8.421-.003 6.615-5.34 11.962-11.91 11.962a11.905 11.905 0 01-5.698-1.44l-6.194 1.624zm6.59-3.38a9.893 9.893 0 005.278 1.52c5.475 0 9.932-4.457 9.934-9.934.001-2.652-1.03-5.145-2.905-7.022a9.902 9.902 0 00-7.036-2.909c-5.486 0-9.943 4.456-9.946 9.934a9.87 9.87 0 001.514 5.25L2.29 21.75l3.966-.998l.391.232zm11.332-6.52c-.287-.144-1.702-.84-1.965-.936-.264-.096-.456-.144-.648.144-.192.288-.744.936-.912 1.129-.167.192-.335.216-.622.072a9.112 9.112 0 01-2.3-1.417a10.12 10.12 0 01-1.592-1.98c-.168-.288-.018-.444.126-.586.13-.127.287-.335.43-.503.144-.168.192-.288.288-.48c.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.234-.56-.473-.483-.648-.492l-.552-.01c-.192 0-.504.072-.768.36-.264.288-1.008.984-1.008 2.399 0 1.416 1.032 2.784 1.176 2.976.144.192 2.032 3.102 4.921 4.347.687.296 1.224.473 1.643.606.69.219 1.319.188 1.815.114.553-.083 1.702-.696 1.942-1.367.24-.672.24-1.248.168-1.368-.071-.12-.263-.192-.55-.336z" />
-                  </svg>
+                  <FaWhatsapp size={17} />
                   WhatsApp
                 </a>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="rounded-3xl bg-white p-8 shadow-xl">
-              <h2 className="mb-6 text-3xl font-bold text-gray-900">
-                Book Appointment
-              </h2>
-
-              <form className="space-y-5">
-                <div>
-                  <label className="mb-2 block font-medium text-gray-700">
-                    Full Name
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-yellow-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block font-medium text-gray-700">
-                    Phone Number
-                  </label>
-
-                  <input
-                    type="tel"
-                    placeholder="Enter phone number"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-yellow-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block font-medium text-gray-700">
-                    Email
-                  </label>
-
-                  <input
-                    type="email"
-                    placeholder="Enter email address"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-yellow-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block font-medium text-gray-700">
-                    Message
-                  </label>
-
-                  <textarea
-                    rows={5}
-                    placeholder="Write your message"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-yellow-500"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-yellow-500 py-4 font-semibold text-black transition hover:bg-yellow-400"
-                >
-                  Send Inquiry
-                </button>
-              </form>
-            </div>
+            {/* API Contact Form */}
+            <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* Google Map */}
-      <section className="pb-20">
+      {/* Map */}
+      <section className="bg-white py-20">
         <div className="container mx-auto px-4">
-          <div className="overflow-hidden rounded-3xl shadow-xl">
+          <div className="mb-8 text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-600">
+              Find Us
+            </span>
+
+            <h2 className="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">
+              Visit Kiyora Thai Spa
+            </h2>
+          </div>
+
+          <div className="overflow-hidden rounded-[28px] border border-gray-100 shadow-[0_15px_45px_rgba(0,0,0,0.08)]">
             <iframe
               src="https://maps.google.com/maps?q=Agra&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="500"
               loading="lazy"
-              className="border-0"
+              className="block w-full border-0"
+              title={`${siteData.name} location`}
             />
           </div>
         </div>
