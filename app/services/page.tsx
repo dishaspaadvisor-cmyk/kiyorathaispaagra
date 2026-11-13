@@ -8,7 +8,7 @@ import { FaLocationDot, FaSpa } from "react-icons/fa6";
 export const metadata = pageMetadata({
   title: `Spa Services in ${siteData.city} | Massage & Wellness Therapies | ${siteData.name}`,
 
-  description: `Explore spa and massage services at ${siteData.name} in ${siteData.area}, ${siteData.city}. We offer full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, Jacuzzi massage, foot reflexology, four hand massage, aromatherapy and relaxing wellness therapies near Fatehabad Road, Tajganj and Agra Cantt.`,
+  description: `View the massage and spa services offered at ${siteData.name} in ${siteData.area}, ${siteData.city}. Check treatment details and contact us to arrange an appointment.`,
 
   path: "/services",
 
@@ -45,11 +45,6 @@ export default function ServicesPage() {
     "Siddharth Nagar",
     "Fatehabad Road",
     "Tajganj",
-    "Agra Cantt",
-    "Sadar Bazaar",
-    "Sanjay Place",
-    "Civil Lines",
-    "Taj Mahal Nearby",
   ];
 
   const serviceFaqs = [
@@ -61,7 +56,7 @@ export default function ServicesPage() {
     {
       question: "Is Kiyora Thai Spa near Fatehabad Road Agra?",
       answer:
-        "Yes, Kiyora Thai Spa is located in Siddharth Nagar, Agra, near Fatehabad Road, Tajganj and Agra Cantt.",
+        "Yes, Kiyora Thai Spa is located in Siddharth Nagar on Fatehabad Road, Agra.",
     },
     {
       question: "Do you offer full body massage in Agra?",
@@ -143,11 +138,10 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <ServiceCard
                 key={service.id}
                 service={service}
-                priority={index < 2}
               />
             ))}
           </div>
@@ -162,12 +156,11 @@ export default function ServicesPage() {
           </span>
 
           <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-            Spa Near Fatehabad Road, Tajganj & Agra Cantt
+            Spa on Fatehabad Road in Siddharth Nagar, Agra
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl leading-7 text-gray-600">
-            Conveniently located in Siddharth Nagar and easily accessible from
-            popular areas across Agra.
+            Find us at Ramesh Plaza on Fatehabad Road in Siddharth Nagar, Agra.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-3">

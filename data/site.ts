@@ -9,7 +9,7 @@ export const siteData = {
 
   whatsapp: "919152855145",
 
-  online_booking: "https://spaadvisor.in/spa",
+  online_booking: "https://spaadvisor.in",
 
   callLink: "tel:+919152655313",
 
@@ -17,12 +17,16 @@ export const siteData = {
 
   bookingLink: "https://spaadvisor.in",
 
-  email: "kiyorathaispa.agra@gmail.com",
-
-  email2: "kiyorathaispa.agra01@gmail.com",
+  email: "kiyorathaispa.agra01@gmail.com",
 
   googleMaps:
-    "https://maps.google.com/maps?q=Shop%20No.%20201%2C%202nd%20Floor%2C%20Ramesh%20Plaza%2C%20Fatehabad%20Road%2C%20Agra&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.9294215031714!2d78.04222067541572!3d27.15851077650151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39747103ffca2c73%3A0x698f8400de9374a6!2sKiyora%20Thai%20Spa%20In%20Agra!5e0!3m2!1sen!2sin!4v1794558223511!5m2!1sen!2sin",
+
+  googleMapsDirections:
+    "https://maps.app.goo.gl/K5RNpGjgM3JdoneEA",
+
+  googleBusinessProfileUrl:
+    "https://www.google.com/search?sca_esv=41273bf052a072a7&sxsrf=AKL5yDghRBUN2MGnJM7wFXxG24Tj0rdRYg:1794563015121&kgmid=/g/11zwpbxbhq&q=Kiyora+Thai+Spa+In+Agra&shem=dlvs1,epsd1,esd2e,ltae,rimspwouoe,sdpie&shndl=30&source=sh/x/loc/uni/m1/1&kgs=643a1a509fe7ab96&utm_source=dlvs1,epsd1,esd2e,ltae,rimspwouoe,sdpie,sh/x/loc/uni/m1/1",
 
   area: "Siddharth Nagar",
 
@@ -33,7 +37,7 @@ export const siteData = {
   pincode: "282001",
 
   address:
-    "Shop No. 201, 2nd Floor, Ramesh Plaza, 30/6/20J, Opposite Punjab & Sindh Bank, Fatehabad Road, Siddharth Nagar, Agra, Uttar Pradesh 282001",
+    "Shop No. 201, 2nd Floor, Ramesh Plaza, 30/6/20J, Fatehabad Road, opposite Punjab & Sindh Bank, Siddharth Nagar, Tajganj, Agra, Uttar Pradesh 282001",
 
   seo: {
     /*
@@ -44,11 +48,10 @@ export const siteData = {
      * Massage in Agra
      * Thai Spa Agra
      */
-    title:
-      "Best Spa in Agra | Thai & Full Body Massage | Kiyora Thai Spa",
+    title: "Thai Spa & Massage in Agra | Kiyora Thai Spa",
 
     description:
-      "Visit Kiyora Thai Spa in Agra for full body massage, Thai massage, Swedish massage, deep tissue massage, oil massage, foot reflexology, four hand massage and Jacuzzi spa services near Fatehabad Road, Tajganj and Siddharth Nagar.",
+      "Visit Kiyora Thai Spa in Siddharth Nagar, Agra for Thai massage and other spa services. View available treatments, location, opening hours and booking options.",
 
     /*
      * Google does NOT use meta keywords for ranking,
@@ -268,25 +271,7 @@ export const siteData = {
     ],
   },
 
-  socials: {
-    /*
-     * Don't put Instagram URL as Facebook/Twitter.
-     * Wrong sameAs profiles can weaken your entity data.
-     */
-
-    facebook: "#",
-
-    instagram:
-      "https://www.instagram.com/kiyoraspaaagra/",
-
-    pinterest:
-      "https://in.pinterest.com/kiyorathaispaagra/_profile/",
-
-    twitter: "#",
-
-    youtube:
-      "https://www.youtube.com/@KiyoraThaiSpa_aagra",
-  },
+  socials: {},
 
   timings: [
     {

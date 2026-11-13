@@ -8,6 +8,7 @@ import BlogCard from "@/components/BlogCard";
 import { services } from "@/data/service";
 import { galleryImages } from "@/data/gallery";
 import { blogs } from "@/data/blog";
+import { reviews } from "@/data/reviews";
 import { siteData } from "@/data/site";
 import { pageMetadata } from "@/data/seo";
 
@@ -36,101 +37,11 @@ export const metadata = pageMetadata({
   image: "/images/smallhero.png",
 
   imageAlt: `${siteData.name} premium spa and massage center in Siddharth Nagar Agra near Fatehabad Road`,
-
-  extraKeywords: [
-    "spa in Agra",
-    "best spa in Agra",
-    "massage in Agra",
-    "best massage in Agra",
-    "spa near me Agra",
-    "massage near me Agra",
-
-    "spa in Siddharth Nagar Agra",
-    "massage in Siddharth Nagar Agra",
-    "spa near Siddharth Nagar Agra",
-
-    "spa near Fatehabad Road Agra",
-    "massage near Fatehabad Road Agra",
-
-    "spa near Tajganj Agra",
-    "massage near Tajganj Agra",
-
-    "spa near Agra Cantt",
-    "massage near Agra Cantt",
-
-    "spa near Sadar Bazaar Agra",
-    "spa near Taj Mahal Agra",
-
-    "full body massage in Agra",
-    "Thai massage in Agra",
-    "Swedish massage in Agra",
-    "deep tissue massage in Agra",
-    "full body oil massage in Agra",
-    "Balinese massage in Agra",
-    "aromatherapy massage in Agra",
-    "Jacuzzi massage in Agra",
-    "four hand massage in Agra",
-    "foot reflexology in Agra",
-
-    "luxury spa in Agra",
-    "premium spa in Agra",
-    "wellness center in Agra",
-    "massage center in Agra",
-
-    "Kiyora Thai Spa Agra",
-  ],
 });
 
 /* =========================================================
    REVIEWS
 ========================================================= */
-
-const reviews = [
-  {
-    id: 1,
-    name: "Amit Sharma",
-    rating: 5,
-    g_icons: "/images/greview.png",
-    review:
-      "Very clean and peaceful spa. The ambience is premium and the massage service was relaxing. Great place in Agra for wellness.",
-  },
-
-  {
-    id: 2,
-    name: "Rahul Verma",
-    rating: 5,
-    g_icons: "/images/greview.png",
-    review:
-      "Excellent Thai massage experience. Rooms are hygienic, staff is professional, and the environment feels luxurious.",
-  },
-
-  {
-    id: 3,
-    name: "Priya Singh",
-    rating: 5,
-    g_icons: "/images/greview.png",
-    review:
-      "Beautiful spa room, calm music, and a very comfortable experience. A peaceful place to relax after a busy day.",
-  },
-
-  {
-    id: 4,
-    name: "Sandeep Gupta",
-    rating: 4,
-    g_icons: "/images/greview.png",
-    review:
-      "Good service and nice ambience. The location near Fatehabad Road is also convenient.",
-  },
-
-  {
-    id: 5,
-    name: "Neha Agarwal",
-    rating: 5,
-    g_icons: "/images/greview.png",
-    review:
-      "One of the best spa experiences in Agra. Clean rooms, soft lighting and a relaxing massage experience.",
-  },
-];
 
 /* =========================================================
    HOME PAGE
@@ -141,11 +52,6 @@ export default function HomePage() {
     "Siddharth Nagar",
     "Fatehabad Road",
     "Tajganj",
-    "Agra Cantt",
-    "Sadar Bazaar",
-    "Sanjay Place",
-    "Civil Lines",
-    "Taj Mahal Area",
   ];
 
   const homeFaqs = [
@@ -158,7 +64,7 @@ export default function HomePage() {
     {
       question: "Is Kiyora Thai Spa near Fatehabad Road Agra?",
       answer:
-        "Yes. Kiyora Thai Spa is located at Ramesh Plaza on Fatehabad Road in Siddharth Nagar, Agra, with convenient access from Tajganj, Agra Cantt and nearby areas.",
+        "Yes. Kiyora Thai Spa is located at Ramesh Plaza on Fatehabad Road in Siddharth Nagar, Agra.",
     },
 
     {
@@ -241,11 +147,10 @@ export default function HomePage() {
 
           {/* Service Cards */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            {services.slice(0, 6).map((service, index) => (
+            {services.slice(0, 6).map((service) => (
               <ServiceCard
                 key={service.id}
                 service={service}
-                priority={index < 2}
               />
             ))}
           </div>
@@ -308,7 +213,6 @@ export default function HomePage() {
                   src={item.image}
                   alt={item.alt}
                   fill
-                  priority={index === 0}
                   sizes={
                     index === 0
                       ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
@@ -372,17 +276,15 @@ export default function HomePage() {
             </span>
 
             <h2 className="mx-auto mt-5 max-w-4xl text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-              Spa Near Fatehabad Road,
+              Spa on Fatehabad Road,
               <span className="block text-yellow-500">
-                Tajganj & Agra Cantt
+                Siddharth Nagar, Agra
               </span>
             </h2>
 
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
-              {siteData.name} is located in Siddharth Nagar on Fatehabad Road,
-              Agra. Our location is convenient for visitors from Tajganj, Agra
-              Cantt, Sadar Bazaar, Sanjay Place, Civil Lines and areas near the
-              Taj Mahal.
+              {siteData.name} is located at Ramesh Plaza on Fatehabad Road in
+              Siddharth Nagar, Agra.
             </p>
 
             {/* Areas */}

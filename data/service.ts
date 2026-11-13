@@ -6,13 +6,12 @@ export const services = [
     duration: "60 Minutes",
     image: "/images/services/full-body-massage.png",
     description:
-      "Relax with a full body massage in Agra at Kiyora Thai Spa, located in Siddharth Nagar near Fatehabad Road, Tajganj and Agra Cantt. This therapy helps reduce stress, relax tired muscles and refresh the body.",
+      "Relax with a full body massage in Agra at Kiyora Thai Spa, located in Siddharth Nagar near Fatehabad Road and Tajganj. This therapy helps reduce stress, relax tired muscles and refresh the body.",
     localKeywords: [
       "Full body massage in Agra",
       "Full body massage in Siddharth Nagar Agra",
       "Full body massage near Fatehabad Road Agra",
       "Body massage near Tajganj Agra",
-      "Massage near Agra Cantt",
     ],
   },
 
@@ -47,7 +46,6 @@ export const services = [
       "Deep tissue massage in Siddharth Nagar Agra",
       "Deep tissue massage near Fatehabad Road Agra",
       "Body pain massage in Agra",
-      "Massage therapy near Agra Cantt",
     ],
   },
 

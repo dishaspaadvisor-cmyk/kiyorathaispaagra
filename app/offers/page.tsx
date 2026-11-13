@@ -3,15 +3,15 @@ import { pageMetadata } from "@/data/seo";
 import Link from "next/link";
 
 export const metadata = pageMetadata({
-  title: `Spa Offers in ${siteData.city} | Massage Packages & Deals | ${siteData.name}`,
+  title: `Spa Discount in ${siteData.city} | ${siteData.name}`,
 
-  description: `Explore spa offers, massage packages and wellness deals at ${siteData.name} in Siddharth Nagar, ${siteData.city}. Book full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, aromatherapy, foot reflexology and Jacuzzi massage packages near Fatehabad Road, Tajganj and Agra Cantt.`,
+  description: `Ask about the 20% discount on services at ${siteData.name} in Siddharth Nagar, ${siteData.city}. Contact the spa for current service and appointment details.`,
 
   path: "/offers",
 
   image: "/images/smallhero.png",
 
-  imageAlt: `Spa offers and massage packages at ${siteData.name} in Agra`,
+  imageAlt: `Spa services at ${siteData.name} in Agra`,
 
   extraKeywords: [
     "spa offers Agra",
@@ -38,7 +38,7 @@ export const metadata = pageMetadata({
 export default function OffersPage() {
   return (
     <main>
-      <section className="relative py-24 text-white" style={{ backgroundImage: "url('/images/smallhero.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative py-24 text-white" style={{ backgroundImage: "url('/images/smallhero.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
        {/* Dark Luxury Overlay */}
             <div className="absolute inset-0 bg-black/80" />
             <div className="absolute inset-0" />
@@ -53,8 +53,8 @@ export default function OffersPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">
-            Explore exclusive discounts, bundle treatments, massage packages,
-            and limited-time spa offers at {siteData.name} in {siteData.city}.
+            Ask about the 20% discount on services at {siteData.name} in{" "}
+            {siteData.city}.
           </p>
         </div>
       </section>
@@ -63,15 +63,15 @@ export default function OffersPage() {
         <div className="container mx-auto px-4">
           <div className="grid gap-8 md:grid-cols-2">
             <article className="rounded-3xl bg-white p-10 shadow-lg">
-              <h2 className="text-3xl font-bold text-gray-900">Relaxation Package</h2>
+              <h2 className="text-3xl font-bold text-gray-900">20% Discount on Services</h2>
               <p className="mt-4 text-gray-600">
-                Enjoy a full body massage plus aromatherapy session at a special rate.
+                Contact us to ask about the 20% discount on spa services.
               </p>
             </article>
             <article className="rounded-3xl bg-white p-10 shadow-lg">
-              <h2 className="text-3xl font-bold text-gray-900">Couples Spa Offer</h2>
+              <h2 className="text-3xl font-bold text-gray-900">Ask About Availability</h2>
               <p className="mt-4 text-gray-600">
-                Book with a partner and receive a discounted luxury wellness experience.
+                Call or send an inquiry to confirm service and appointment details.
               </p>
             </article>
           </div>

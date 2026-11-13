@@ -14,7 +14,7 @@ import {
 export const metadata = pageMetadata({
   title: `Contact ${siteData.name} - Spa Booking in ${siteData.city}`,
 
-  description: `Contact ${siteData.name} in ${siteData.area}, ${siteData.city} for spa appointments, massage booking, Thai massage, full body massage, wellness therapies and online booking near Fatehabad Road.`,
+  description: `Contact ${siteData.name} in ${siteData.area}, ${siteData.city} to ask about services, opening hours and appointments.`,
 
   path: "/contact",
 
@@ -213,7 +213,7 @@ export default function ContactPage() {
 
           <div className="overflow-hidden rounded-[28px] border border-gray-100 shadow-[0_15px_45px_rgba(0,0,0,0.08)]">
             <iframe
-              src="https://maps.google.com/maps?q=Agra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src={siteData.googleMaps}
               width="100%"
               height="500"
               loading="lazy"
@@ -221,6 +221,16 @@ export default function ContactPage() {
               title={`${siteData.name} location`}
             />
           </div>
+          <p className="mt-5 text-center">
+            <a
+              href={siteData.googleMapsDirections}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold text-yellow-700 transition hover:text-yellow-600"
+            >
+              Get directions
+            </a>
+          </p>
         </div>
       </section>
     </main>

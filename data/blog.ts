@@ -1,7 +1,7 @@
 export const blogs = [
   {
     id: 1,
-    title: "Best Full Body Massage in Agra for Complete Relaxation",
+    title: "Full Body Massage in Agra for Relaxation",
     slug: "best-full-body-massage-in-agra",
     date: "2026-06-12",
     author: "Kiyora Thai Spa",
@@ -9,7 +9,7 @@ export const blogs = [
     excerpt:
       "Discover how full body massage can help relax tired muscles, reduce stress, and refresh your body.",
     content:
-      "If you are looking for a relaxing full body massage in Agra, Kiyora Thai Spa offers a premium wellness experience in Siddharth Nagar. Full body massage is designed to relax tired muscles, reduce everyday stress, and support overall body comfort. Our peaceful spa ambience and professional care make it a suitable choice for guests looking to unwind near Fatehabad Road, Tajganj, and Agra Cantt.",
+      "If you are looking for a relaxing full body massage in Agra, Kiyora Thai Spa offers a spa experience in Siddharth Nagar. Full body massage is designed to relax tired muscles and support overall body comfort. Our location is on Fatehabad Road near Tajganj.",
   },
 
   {
@@ -87,7 +87,7 @@ export const blogs = [
     excerpt:
       "Full body Thai massage uses traditional techniques designed to support flexibility and overall relaxation.",
     content:
-      "Full body Thai massage combines traditional Thai-inspired techniques that focus on body movement, stretching, and relaxation. It is a popular wellness option for guests who want to feel refreshed and comfortable. Kiyora Thai Spa offers full body Thai massage in Agra near Fatehabad Road, Tajganj, and Agra Cantt.",
+      "Full body Thai massage combines traditional Thai-inspired techniques that focus on body movement, stretching, and relaxation. It is a wellness option for guests who want to feel refreshed and comfortable. Kiyora Thai Spa offers full body Thai massage in Siddharth Nagar, Agra, on Fatehabad Road.",
   },
 
   {

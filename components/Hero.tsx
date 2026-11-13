@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   FaPhone,
   FaWhatsapp,
@@ -13,34 +14,37 @@ const desktopHeroVideo = "/videos/hero-desktop.mp4";
 const mobileHeroVideo = "/videos/hero-mobile.mp4";
 
 export default function Hero() {
+  const [videoSource, setVideoSource] = useState<string>();
+
+  useEffect(() => {
+    const desktopViewport = window.matchMedia("(min-width: 768px)");
+    const updateVideoSource = () => {
+      setVideoSource(
+        desktopViewport.matches ? desktopHeroVideo : mobileHeroVideo,
+      );
+    };
+
+    updateVideoSource();
+    desktopViewport.addEventListener("change", updateVideoSource);
+
+    return () => {
+      desktopViewport.removeEventListener("change", updateVideoSource);
+    };
+  }, []);
+
   return (
     <section className="relative min-h-[88svh] overflow-hidden bg-black">
-      {/* Desktop Video */}
       <video
-        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        src={videoSource}
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="/images/kiyorathaispa.png"
+        preload="none"
+        poster="/images/kiyorathaispa-poster.webp"
         aria-hidden="true"
       >
-        <source src={desktopHeroVideo} type="video/mp4" />
-      </video>
-
-      {/* Mobile Video */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover object-center md:hidden"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/images/kiyorathaispa.png"
-        aria-hidden="true"
-      >
-        <source src={mobileHeroVideo} type="video/mp4" />
       </video>
 
       {/* Overlay */}
@@ -53,10 +57,10 @@ export default function Hero() {
       <div className="container relative z-10 mx-auto flex min-h-[88svh] items-end px-4 pb-16 pt-24 sm:items-center sm:pb-20 md:py-24">
         <div className="max-w-2xl">
           {/* Label */}
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-[11px] font-semibold text-white backdrop-blur-md sm:mb-5 sm:px-4 sm:text-sm">
+          <h1 className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-[11px] font-semibold text-white backdrop-blur-md sm:mb-5 sm:px-4 sm:text-sm">
             <FaStar className="text-yellow-400" />
             Premium Spa & Massage in Agra
-          </div>
+          </h1>
 
        
 

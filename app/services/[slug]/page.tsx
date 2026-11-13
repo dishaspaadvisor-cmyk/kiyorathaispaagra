@@ -16,12 +16,12 @@ import {
 
 import { services } from "@/data/service";
 import { siteData } from "@/data/site";
-import { absoluteUrl, jsonLd, keywords } from "@/data/seo";
+import { absoluteUrl, jsonLd } from "@/data/seo";
 
 interface Params {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -37,35 +37,20 @@ export async function generateMetadata({
 
   const service = services.find((item) => item.slug === slug);
 
-  if (!service) {
-    return {
-      title: "Service Not Found",
-      description: `The requested service was not found on ${siteData.name}.`,
-      alternates: {
-        canonical: `${siteData.url}/services`,
-      },
-    };
-  }
+  if (!service) notFound();
 
   const pageUrl = `${siteData.url}/services/${service.slug}`;
 
   const title = `${service.title} in Agra | ${siteData.name}`;
 
-  const description = `${service.description} Book ${service.title.toLowerCase()} at ${siteData.name} in Siddharth Nagar, Agra, near Fatehabad Road, Tajganj and Agra Cantt.`;
+  const description = `${service.description} Contact ${siteData.name} in Siddharth Nagar, Agra, to ask about availability and appointments.`;
 
   return {
-    title,
+    title: {
+      absolute: title,
+    },
 
     description,
-
-    keywords: keywords([
-      `${service.title} in Agra`,
-      `${service.title} in Siddharth Nagar Agra`,
-      `${service.title} near Fatehabad Road Agra`,
-      `${service.title} near Tajganj Agra`,
-      `book ${service.title} Agra`,
-      ...(service.localKeywords || []),
-    ]),
 
     alternates: {
       canonical: pageUrl,
@@ -111,21 +96,16 @@ export default async function ServiceDetailsPage({ params }: Params) {
     "Siddharth Nagar",
     "Fatehabad Road",
     "Tajganj",
-    "Agra Cantt",
-    "Sadar Bazaar",
-    "Sanjay Place",
-    "Civil Lines",
-    "Taj Mahal Nearby",
   ];
 
   const serviceFaqs = [
     {
       question: `Where can I book ${service.title} in Agra?`,
-      answer: `You can book ${service.title} at ${siteData.name}, located in ${siteData.area}, ${siteData.city}, near Fatehabad Road, Tajganj and Agra Cantt.`,
+      answer: `You can ask about ${service.title} at ${siteData.name}, located in ${siteData.area}, ${siteData.city}.`,
     },
     {
       question: `Is ${service.title} available near Fatehabad Road Agra?`,
-      answer: `Yes, ${service.title} is available at ${siteData.name} in Siddharth Nagar, near Fatehabad Road, Agra.`,
+      answer: `Contact ${siteData.name} to confirm availability of ${service.title} at our Siddharth Nagar location on Fatehabad Road, Agra.`,
     },
     {
       question: `Why choose ${siteData.name} for ${service.title}?`,
@@ -162,10 +142,6 @@ const serviceSchema = {
     {
       "@type": "Place",
       name: "Siddharth Nagar, Agra",
-    },
-    {
-      "@type": "Place",
-      name: "Fatehabad Road, Agra",
     },
     {
       "@type": "Place",
@@ -268,9 +244,8 @@ const serviceSchema = {
               </p>
 
               <p className="mt-5 text-base leading-8 text-gray-600">
-                Visit our spa in {siteData.area}, {siteData.city}, near
-                Fatehabad Road, Tajganj and Agra Cantt for a peaceful and
-                comfortable wellness experience.
+                Visit our spa in {siteData.area}, {siteData.city}, on Fatehabad
+                Road.
               </p>
 
               {/* Benefits */}
@@ -374,7 +349,7 @@ const serviceSchema = {
           </span>
 
           <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-            {service.title} Near Fatehabad Road, Tajganj & Agra Cantt
+            {service.title} in Siddharth Nagar, Agra
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl leading-7 text-gray-600">

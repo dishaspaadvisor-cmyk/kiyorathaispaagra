@@ -1,9 +1,11 @@
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: `Terms & Conditions | ${siteData.name}`,
   description: `Terms and Conditions for using ${siteData.name} website, spa services, bookings, and customer support.`,
-};
+  path: "/terms-and-conditions",
+});
 
 export default function TermsAndConditionsPage() {
   return (
@@ -147,9 +149,6 @@ export default function TermsAndConditionsPage() {
                 </div>
               </div>
 
-              <div className="border-t pt-6 text-sm text-gray-500">
-                Last Updated: {new Date().toLocaleDateString("en-IN")}
-              </div>
             </div>
           </div>
         </div>

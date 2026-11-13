@@ -10,7 +10,7 @@ export default function FloatingButton() {
       
       {/* WhatsApp */}
       <a
-        href={`https://wa.me/${siteData.whatsapp}`}
+        href={siteData.whatsappLink}
         aria-label="Chat on WhatsApp"
         onClick={(event) => {
           event.preventDefault();

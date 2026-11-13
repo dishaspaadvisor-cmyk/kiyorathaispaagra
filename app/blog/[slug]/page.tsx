@@ -15,12 +15,12 @@ import {
 
 import { blogs } from "@/data/blog";
 import { siteData } from "@/data/site";
-import { absoluteUrl, jsonLd, keywords } from "@/data/seo";
+import { absoluteUrl, jsonLd } from "@/data/seo";
 
 interface Params {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -36,31 +36,16 @@ export async function generateMetadata({
 
   const blog = blogs.find((item) => item.slug === slug);
 
-  if (!blog) {
-    return {
-      title: "Blog Not Found",
-      description: `The requested blog article was not found on ${siteData.name}.`,
-      alternates: {
-        canonical: `${siteData.url}/blog`,
-      },
-    };
-  }
+  if (!blog) notFound();
 
   const pageUrl = `${siteData.url}/blog/${blog.slug}`;
 
   return {
-    title: blog.title,
+    title: {
+      absolute: `${blog.title} | ${siteData.name}`,
+    },
 
     description: blog.excerpt,
-
-    keywords: keywords([
-      blog.title,
-      `${blog.title} Agra`,
-      "Spa Blog Agra",
-      "Massage Blog Agra",
-      "Wellness Blog Agra",
-      `${siteData.name} Blog`,
-    ]),
 
     alternates: {
       canonical: pageUrl,
@@ -314,7 +299,7 @@ const articleSchema = {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {relatedBlogs.map((item, index) => (
+            {relatedBlogs.map((item) => (
               <Link
                 key={item.id}
                 href={`/blog/${item.slug}`}
@@ -326,7 +311,6 @@ const articleSchema = {
                     src={item.image}
                     alt={item.title}
                     fill
-                    priority={index === 0}
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />

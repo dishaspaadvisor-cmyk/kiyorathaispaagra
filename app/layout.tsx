@@ -10,7 +10,6 @@ import Script from "next/script";
 import { siteData } from "@/data/site";
 import {
   absoluteUrl,
-  coreServiceKeywords,
   jsonLd,
 } from "@/data/seo";
 
@@ -27,8 +26,6 @@ export const metadata: Metadata = {
   },
 
   description: siteData.seo.description,
-
-  keywords: siteData.seo.keywords,
 
   applicationName: siteData.name,
 
@@ -66,10 +63,6 @@ export const metadata: Metadata = {
 
   verification: {
     google: "Sifv4MefWWJYfMnVtMUVJkPF7ct3IONjLYqw0Oi9I8g",
-  },
-
-  alternates: {
-    canonical: siteData.url,
   },
 
   openGraph: {
@@ -119,16 +112,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   /* =======================================================
-     VALID SOCIAL PROFILE LINKS
-  ======================================================= */
-
-  const sameAs = Object.values(siteData.socials).filter(
-    (item): item is string =>
-      typeof item === "string" &&
-      item.startsWith("http")
-  );
-
-  /* =======================================================
      LOCAL BUSINESS SCHEMA
   ======================================================= */
 
@@ -141,20 +124,11 @@ export default function RootLayout({
 
     name: siteData.name,
 
-    alternateName: [
-      "Kiyora Spa Agra",
-      "Kiyora Thai Spa Agra",
-    ],
-
     description: siteData.seo.description,
 
     url: siteData.url,
 
     telephone: siteData.phone,
-
-    email: siteData.email,
-
-    slogan: siteData.tagline,
 
     image: [
       absoluteUrl("/images/kiyorathaispa.png"),
@@ -162,17 +136,6 @@ export default function RootLayout({
     ],
 
     logo: absoluteUrl("/favicon.png"),
-
-    priceRange: "₹₹",
-
-    currenciesAccepted: "INR",
-
-    paymentAccepted: [
-      "Cash",
-      "UPI",
-      "Credit Card",
-      "Debit Card",
-    ],
 
     address: {
       "@type": "PostalAddress",
@@ -191,52 +154,10 @@ export default function RootLayout({
       },
     },
 
-    areaServed: [
-      {
-        "@type": "City",
-        name: "Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Siddharth Nagar, Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Fatehabad Road, Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Tajganj, Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Taj Mahal, Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Agra Cantonment",
-      },
-
-      {
-        "@type": "Place",
-        name: "Sadar Bazaar, Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Sanjay Place, Agra",
-      },
-
-      {
-        "@type": "Place",
-        name: "Civil Lines, Agra",
-      },
-    ],
+    areaServed: {
+      "@type": "City",
+      name: siteData.city,
+    },
 
     openingHoursSpecification: [
       {
@@ -258,40 +179,9 @@ export default function RootLayout({
       },
     ],
 
-    knowsAbout: coreServiceKeywords,
+    hasMap: siteData.googleMapsDirections,
 
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-
-      name: "Spa & Massage Services in Agra",
-
-      itemListElement: coreServiceKeywords.map((service) => ({
-        "@type": "Offer",
-
-        itemOffered: {
-          "@type": "Service",
-
-          name: service,
-
-          serviceType: service,
-
-          provider: {
-            "@id": `${siteData.url}/#business`,
-          },
-
-          areaServed: {
-            "@type": "City",
-            name: siteData.city,
-          },
-        },
-      })),
-    },
-
-    ...(sameAs.length > 0
-      ? {
-          sameAs,
-        }
-      : {}),
+    sameAs: [siteData.googleBusinessProfileUrl],
   };
 
   /* =======================================================
@@ -307,8 +197,6 @@ export default function RootLayout({
 
     name: siteData.name,
 
-    alternateName: "Kiyora Thai Spa Agra",
-
     url: siteData.url,
 
     description: siteData.seo.description,
@@ -318,51 +206,6 @@ export default function RootLayout({
     publisher: {
       "@id": `${siteData.url}/#business`,
     },
-  };
-
-  /* =======================================================
-     ORGANIZATION / BRAND SCHEMA
-  ======================================================= */
-
-  const organizationSchema = {
-    "@context": "https://schema.org",
-
-    "@type": "Organization",
-
-    "@id": `${siteData.url}/#organization`,
-
-    name: siteData.name,
-
-    url: siteData.url,
-
-    logo: {
-      "@type": "ImageObject",
-      url: absoluteUrl("/favicon.png"),
-    },
-
-    email: siteData.email,
-
-    telephone: siteData.phone,
-
-    address: {
-      "@type": "PostalAddress",
-
-      streetAddress: siteData.address,
-
-      addressLocality: siteData.city,
-
-      addressRegion: siteData.state,
-
-      postalCode: siteData.pincode,
-
-      addressCountry: "IN",
-    },
-
-    ...(sameAs.length > 0
-      ? {
-          sameAs,
-        }
-      : {}),
   };
 
   return (
@@ -391,14 +234,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: jsonLd(websiteSchema),
-          }}
-        />
-
-        {/* Organization */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLd(organizationSchema),
           }}
         />
 

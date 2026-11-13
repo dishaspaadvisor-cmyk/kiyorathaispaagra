@@ -2,37 +2,37 @@ export const galleryImages = [
   {
     id: 1,
     title: "Luxury Spa Room",
-    image: "/images/gallery/spa-room.JPG",
+    image: "/images/gallery/spa-room.webp",
     alt: "Luxury spa room at Kiyora Thai Spa Agra",
   },
   {
     id: 2,
     title: "Thai Massage Therapy",
-    image: "/images/gallery/thai-massage.JPG",
+    image: "/images/gallery/thai-massage.webp",
     alt: "Thai massage therapy in Agra",
   },
   {
     id: 3,
     title: "Relaxing Spa Ambience",
-    image: "/images/gallery/spa-ambience.jpg",
+    image: "/images/gallery/spa-ambience.webp",
     alt: "Relaxing spa ambience in Siddharth Nagar Agra",
   },
   {
     id: 4,
     title: "Aromatherapy Setup",
-    image: "/images/gallery/aromatherapy.jpg",
+    image: "/images/gallery/aromatherapy.webp",
     alt: "Aromatherapy massage setup at Kiyora Thai Spa",
   },
   {
     id: 5,
     title: "Premium Wellness Care",
-    image: "/images/gallery/wellness-care.jpg",
+    image: "/images/gallery/wellness-care.webp",
     alt: "Premium wellness care spa in Agra",
   },
   {
     id: 6,
     title: "Couple Spa Room",
-    image: "/images/gallery/couple-spa.jpg",
+    image: "/images/gallery/couple-spa.webp",
     alt: "Couple spa room in Agra",
   },
   {

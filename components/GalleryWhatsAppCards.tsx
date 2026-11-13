@@ -27,7 +27,6 @@ export default function GalleryWhatsAppCards() {
             src={item.image}
             alt={item.alt}
             fill
-            priority={index === 0}
             sizes={
               index === 0
                 ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"

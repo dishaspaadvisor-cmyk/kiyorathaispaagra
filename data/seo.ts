@@ -169,16 +169,15 @@ export function pageMetadata({
   image = "/images/kiyorathaispa.png",
   imageAlt = siteData.name,
   type = "website",
-  extraKeywords = [],
 }: PageMetadataOptions) {
   const url = absoluteUrl(path);
 
   return {
-    title,
+    title: {
+      absolute: title,
+    },
 
     description,
-
-    keywords: keywords(extraKeywords),
 
     alternates: {
       canonical: url,

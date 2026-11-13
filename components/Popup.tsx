@@ -55,7 +55,7 @@ export default function Popup() {
           <div className="relative h-[190px] overflow-hidden sm:h-[260px] md:h-auto md:min-h-[500px]">
             <Image
               src="/images/popup.png"
-              alt={`Special massage offer at ${siteData.name}`}
+              alt={`Spa service discount at ${siteData.name}`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-center"
@@ -67,7 +67,7 @@ export default function Popup() {
             {/* Offer Badge */}
             <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 text-[11px] font-bold text-gray-900 shadow-lg backdrop-blur-md sm:bottom-4 sm:left-4 sm:px-4 sm:text-sm">
               <FaGift className="text-yellow-500" />
-              Limited Time Offer
+              Service Offer
             </div>
           </div>
 
@@ -75,37 +75,25 @@ export default function Popup() {
           <div className="flex flex-col justify-center p-5 sm:p-7 md:p-10">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-yellow-700 sm:px-4 sm:text-xs">
               <FaPercent />
-              Special Discount
+              Current Discount
             </span>
 
             <h2 className="mt-4 text-2xl font-bold leading-tight text-gray-900 sm:mt-5 sm:text-4xl">
-              Get Up To
+              Get
               <span className="block text-yellow-500">
-                25% OFF
+                20% OFF
+              </span>
+              <span className="block text-lg sm:text-xl">
+                Spa Services
               </span>
             </h2>
 
-            {/* Price */}
-            <div className="mt-4 flex flex-wrap items-end gap-x-3 gap-y-1">
-              <span className="text-sm font-semibold text-gray-400 line-through sm:text-base">
-                ₹4,999
-              </span>
-
-              <span className="text-xs font-semibold uppercase tracking-wide text-gray-500 sm:text-sm">
-                Starts From
-              </span>
-
-              <span className="text-3xl font-extrabold leading-none text-gray-900 sm:text-4xl">
-                ₹1,999
-              </span>
-            </div>
-
             <p className="mt-4 max-w-md text-sm leading-6 text-gray-600 sm:leading-7">
-              Relax and enjoy a premium wellness experience at{" "}
+              Ask us about the 20% discount on services at{" "}
               <span className="font-semibold text-gray-900">
                 {siteData.name}
               </span>
-              . Book your preferred massage today and enjoy our special offer.
+              .
             </p>
 
             {/* Buttons */}

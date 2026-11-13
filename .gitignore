@@ -39,6 +39,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+/public/images/flutter_windows_3.44.9-stable.zip
 
 # typescript
 *.tsbuildinfo

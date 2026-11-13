@@ -4,9 +4,6 @@ import {
   FaEnvelope,
   FaLocationDot,
   FaClock,
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
   FaArrowUpRightFromSquare,
 } from "react-icons/fa6";
 
@@ -32,43 +29,11 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-gray-600">
-              Best no 1 Thai spa and wellness experience in {siteData.area},{" "}
-              {siteData.city}. Enjoy luxury massage therapies, peaceful
-              ambience and professional care.
+              Thai massage and spa services in {siteData.area},{" "}
+              {siteData.city}. Explore available treatments and contact us to
+              arrange an appointment.
             </p>
 
-            {/* Social Icons */}
-            <div className="mt-6 flex gap-3">
-              <a
-                href={siteData.socials.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
-              >
-                <FaFacebookF size={17} />
-              </a>
-
-              <a
-                href={siteData.socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
-              >
-                <FaInstagram size={18} />
-              </a>
-
-              <a
-                href={siteData.socials.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50 hover:text-yellow-700"
-              >
-                <FaYoutube size={19} />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}

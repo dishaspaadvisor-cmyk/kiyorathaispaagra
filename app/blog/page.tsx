@@ -8,7 +8,7 @@ import { FaBookOpen, FaLocationDot } from "react-icons/fa6";
 export const metadata = pageMetadata({
   title: `Spa & Massage Blog in ${siteData.city} | Wellness Tips in Siddharth Nagar | ${siteData.name}`,
 
-  description: `Read spa and massage blogs from ${siteData.name} in Siddharth Nagar, ${siteData.city}. Explore wellness tips, full body massage benefits, Thai massage guides, Swedish massage advice, deep tissue massage tips, hot oil massage, aromatherapy, Jacuzzi spa and foot reflexology articles for people near Fatehabad Road, Tajganj, Agra Cantt and nearby Agra areas.`,
+  description: `Read spa and massage articles from ${siteData.name} in ${siteData.city}, including guides to available treatments and relaxation.`,
 
   path: "/blog",
 

@@ -15,7 +15,7 @@ import { pageMetadata } from "@/data/seo";
 export const metadata = pageMetadata({
   title: `About ${siteData.name} | Spa & Wellness Center in ${siteData.area}, ${siteData.city}`,
 
-  description: `${siteData.name} is a premium spa and wellness center in ${siteData.area}, ${siteData.city}, near Fatehabad Road, Tajganj and Agra Cantt. We offer full body massage, Thai massage, Swedish massage, deep tissue massage, hot oil massage, aromatherapy, Jacuzzi massage, foot reflexology and relaxing wellness therapies in Agra.`,
+  description: `Learn about ${siteData.name}, a spa in ${siteData.area}, ${siteData.city}. Find our location, available massage services and ways to contact us.`,
 
   path: "/about",
 
@@ -58,18 +58,13 @@ export default function AboutPage() {
     "Siddharth Nagar",
     "Fatehabad Road",
     "Tajganj",
-    "Agra Cantt",
-    "Sadar Bazaar",
-    "Sanjay Place",
-    "Civil Lines",
-    "Taj Mahal Nearby",
   ];
 
   const aboutFaqs = [
     {
       question: "Where is Kiyora Thai Spa located in Agra?",
       answer:
-        "Kiyora Thai Spa is located in Siddharth Nagar, Agra, near Fatehabad Road, Tajganj and Agra Cantt.",
+        "Kiyora Thai Spa is located in Siddharth Nagar on Fatehabad Road, Agra.",
     },
     {
       question: "What massage services are available at Kiyora Thai Spa?",
@@ -170,7 +165,7 @@ export default function AboutPage() {
 
             <p className="mt-4 max-w-xl leading-8 text-gray-600">
               Enjoy hygienic private rooms, professional care and a calm
-              ambience near Fatehabad Road, Tajganj and Agra Cantt.
+              ambience on Fatehabad Road in Siddharth Nagar, Agra.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -291,12 +286,11 @@ export default function AboutPage() {
           </span>
 
           <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-            Spa Near Fatehabad Road, Tajganj & Agra Cantt
+            Spa on Fatehabad Road in Siddharth Nagar, Agra
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-gray-600">
-            Conveniently located in Siddharth Nagar and accessible from
-            popular areas across Agra.
+            Find us at Ramesh Plaza on Fatehabad Road in Siddharth Nagar, Agra.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-3">

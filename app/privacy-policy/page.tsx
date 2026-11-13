@@ -1,9 +1,11 @@
 import { siteData } from "@/data/site";
+import { pageMetadata } from "@/data/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: `Privacy Policy | ${siteData.name}`,
-  description: `Privacy Policy for ${siteData.name}. Learn how we collect, use, and protect your personal information.`,
-};
+  description: `Read how ${siteData.name} handles personal information submitted through its website and booking inquiries.`,
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
@@ -166,9 +168,6 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <div className="border-t pt-6 text-sm text-gray-500">
-                Last Updated: {new Date().toLocaleDateString("en-IN")}
-              </div>
             </div>
           </div>
         </div>

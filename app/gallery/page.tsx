@@ -4,14 +4,13 @@ import { pageMetadata } from "@/data/seo";
 import {
   FaImages,
   FaLocationDot,
-  FaWhatsapp,
 } from "react-icons/fa6";
 import GalleryWhatsAppCards from "@/components/GalleryWhatsAppCards";
 
 export const metadata = pageMetadata({
   title: `Spa Gallery in ${siteData.city} | Massage Rooms & Wellness Photos | ${siteData.name}`,
 
-  description: `View the spa gallery of ${siteData.name} in Siddharth Nagar, ${siteData.city}. Explore spa rooms, massage therapy setup, Jacuzzi ambience, hot oil massage space, aromatherapy area, relaxation rooms and wellness interiors near Fatehabad Road, Tajganj and Agra Cantt.`,
+  description: `View photos of the treatment rooms and spa interiors at ${siteData.name} in ${siteData.area}, ${siteData.city}.`,
 
   path: "/gallery",
 
