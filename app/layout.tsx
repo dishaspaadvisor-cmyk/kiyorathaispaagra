@@ -8,10 +8,7 @@ import BottomCTA from "@/components/BottomCTA";
 import Popup from "@/components/Popup";
 import Script from "next/script";
 import { siteData } from "@/data/site";
-import {
-  absoluteUrl,
-  jsonLd,
-} from "@/data/seo";
+import { absoluteUrl, jsonLd } from "@/data/seo";
 
 /* =========================================================
    GLOBAL WEBSITE METADATA
@@ -211,15 +208,9 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <body>
-
-
-
-
         {/* =================================================
             STRUCTURED DATA
         ================================================= */}
-
-
 
         {/* Local Business */}
         <script
@@ -237,24 +228,37 @@ export default function RootLayout({
           }}
         />
 
-   {/* Google Ads Tag */}
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=AW-18379813823"
-    strategy="afterInteractive"
-  />
+        {/* Google Ads Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18379813823"
+          strategy="afterInteractive"
+        />
 
-  <Script id="google-ads-tag" strategy="afterInteractive">
-    {`
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'AW-18379813823');
     `}
-  </Script>
+        </Script>
 
+        <script>
+          {`
+    
+(function(){
+  // Spa Chatbot Widget Loader
+  const spaId = "507-0";
+  const script = document.createElement('script');
+  script.src = 'https://chatbot.bookingbot.in//bot.js?spa=' + spaId;
+  script.async = true;
+  script.setAttribute('data-spa', spaId);
+  document.head.appendChild(script);
+})();
 
-  
+ `}
+        </script>
 
         {/* =================================================
             WEBSITE UI
@@ -262,9 +266,7 @@ export default function RootLayout({
 
         <Header />
 
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
 
         <BottomCTA />
 
